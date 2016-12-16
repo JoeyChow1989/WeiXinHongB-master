@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="leizhi">
+        <item>选择雷值</item>
+        <item>雷值:0</item>
+        <item>雷值:1</item>
+        <item>雷值:2</item>
+        <item>雷值:3</item>
+        <item>雷值:4</item>
+        <item>雷值:5</item>
+        <item>雷值:6</item>
+        <item>雷值:7</item>
+        <item>雷值:8</item>
+        <item>雷值:9</item>
+    </string-array>
+
+    <string-array name="niu">
+        <item>选择牛值</item>
+        <item>牛1</item>
+        <item>牛2</item>
+        <item>牛3</item>
+        <item>牛4</item>
+        <item>牛5</item>
+        <item>牛6</item>
+        <item>牛7</item>
+        <item>牛8</item>
+        <item>牛9</item>
+    </string-array>
+
+    <string-array name="weishu">
+        <item>选择尾数</item>
+        <item>尾数:0</item>
+        <item>尾数:1</item>
+        <item>尾数:2</item>
+        <item>尾数:3</item>
+        <item>尾数:4</item>
+        <item>尾数:5</item>
+        <item>尾数:6</item>
+        <item>尾数:7</item>
+        <item>尾数:8</item>
+        <item>尾数:9</item>
+    </string-array>
+
+
+</resources>

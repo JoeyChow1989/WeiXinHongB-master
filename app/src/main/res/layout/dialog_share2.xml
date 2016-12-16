@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@+id/context_view2"
+              xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="match_parent"
+              android:background="#88000000"
+              android:gravity="center"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/main_linearlayout2"
+        android:layout_width="300dp"
+        android:layout_height="350dip"
+        android:background="@drawable/kaitongvip_bg"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/fl"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            >
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:paddingLeft="50dp"
+                android:text="活动详情"
+                android:textColor="@android:color/black"
+                android:textSize="16dp"
+                android:textStyle="bold"/>
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="right"
+                />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#adadad"/>
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_marginTop="20dp"
+                android:textColor="@android:color/holo_red_dark"
+                android:text="1.活动期间，充值满50元，送50元话费 \n2.活动期间，充值满100元，送150元话费 \n3.满足条件的用户每个月返回10元话费 \n4.每月话费将于次日进行统一返还"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_weight="1"
+                android:textColor="@android:color/holo_red_dark"
+                android:text="满足条件的用户请在下面输入您需要充值的手机号码，我们会在约定的时间给您的手机号码充值话费。"/>
+
+
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/id_add_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="请输入您需要充值的手机号码"
+            android:textSize="12dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            />
+
+        <Button
+            android:id="@+id/id_tijiao_phone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="5dp"
+            android:text="提交"
+            android:gravity="center"
+            android:textSize="16dp"
+            android:textColor="@android:color/white"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>
