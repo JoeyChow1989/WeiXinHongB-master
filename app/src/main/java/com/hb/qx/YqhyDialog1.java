@@ -1,47 +1,48 @@
 package com.hb.qx;
 
-import android.app.Activity;
-import android.content.SharedPreferences;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
-import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.RadioButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.umeng.socialize.bean.SHARE_MEDIA;
-import com.umeng.socialize.bean.SocializeEntity;
-import com.umeng.socialize.controller.UMServiceFactory;
-import com.umeng.socialize.controller.UMSocialService;
-import com.umeng.socialize.controller.listener.SocializeListeners.SnsPostListener;
-import com.umeng.socialize.media.QQShareContent;
-import com.umeng.socialize.media.QZoneShareContent;
-import com.umeng.socialize.media.UMImage;
-import com.umeng.socialize.sso.QZoneSsoHandler;
-import com.umeng.socialize.sso.UMQQSsoHandler;
-import com.umeng.socialize.weixin.controller.UMWXHandler;
-import com.umeng.socialize.weixin.media.CircleShareContent;
-import com.umeng.socialize.weixin.media.WeiXinShareContent;
+import com.data.bean.PayResult;
+import com.hb.net.RxService;
 
-public class YqhyDialog1 extends PopupWindow implements OnClickListener
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import rx.Observer;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
+
+public class YqhyDialog1 extends PopupWindow
 {
-    private Activity mActivity;
+    private Context mActivity;
     private LinearLayout linearLayout;
     private Button button;
-    private CheckBox zhifubao, weixin;
+    private RadioButton zhifubao, weixin;
+    private ImageView cancel;
+    private TextView tv_prise;
 
+    private boolean isZFB, isWX;
+    String prise;
 
-    public YqhyDialog1(Activity activity)
+    //支付方式
+    int paytype;
+    private String transdata;
+
+    public YqhyDialog1(Context activity, String prise)
     {
         mActivity = activity;
+        this.prise = prise;
         initView();
     }
 
@@ -50,42 +51,123 @@ public class YqhyDialog1 extends PopupWindow implements OnClickListener
         View rootView = LayoutInflater.from(mActivity).inflate(R.layout.dialog_share1, null);
         linearLayout = (LinearLayout) rootView.findViewById(R.id.context_view1);
         button = (Button) rootView.findViewById(R.id.id_querenzhifu);
-        zhifubao = (CheckBox) rootView.findViewById(R.id.id_checkbox_zhifubao);
-        weixin = (CheckBox) rootView.findViewById(R.id.id_checkbox_weixin);
+        zhifubao = (RadioButton) rootView.findViewById(R.id.id_checkbox_zhifubao);
+        weixin = (RadioButton) rootView.findViewById(R.id.id_checkbox_weixin);
+        cancel = (ImageView) rootView.findViewById(R.id.id_dialog_cancel1);
+        tv_prise = (TextView) rootView.findViewById(R.id.id_share_prise);
+        tv_prise.setText(prise + "元");
 
         zhifubao.setChecked(true);
-
-        if (zhifubao.isChecked())
+        zhifubao.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
         {
-            weixin.setChecked(false);
-        } else
-        {
-            zhifubao.setChecked(false);
-        }
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b)
+            {
+                if (b)
+                {
+                    weixin.setChecked(false);
+                } else
+                {
+                    weixin.setChecked(true);
+                }
+            }
+        });
 
+        weixin.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+        {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b)
+            {
+                if (b)
+                {
+                    zhifubao.setChecked(false);
+                } else
+                {
+                    zhifubao.setChecked(true);
+                }
+            }
+        });
+
+        button.setOnClickListener(new OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                System.out.println("---------确认---------");
+                if (weixin.isChecked())
+                {
+                    paytype = 10002;
+                } else if (zhifubao.isChecked())
+                {
+                    paytype = 10006;
+                }
+                Pay(paytype);
+            }
+        });
+
+        cancel.setOnClickListener(new OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                dismiss();
+            }
+        });
         setContentView(rootView);
         setWidth(LayoutParams.MATCH_PARENT);
         setHeight(LayoutParams.MATCH_PARENT);
         setFocusable(true);
         setTouchable(true);
-        setOutsideTouchable(true);
+        setOutsideTouchable(false);
+    }
+
+    private void Pay(int paytype)
+    {
+        JSONObject jsonObject = new JSONObject();
+        try
+        {
+            jsonObject.put("merchantID", 100001);
+            jsonObject.put("waresname", "test");
+            jsonObject.put("cporderid", "00000000");
+            jsonObject.put("price", "0.01");
+            jsonObject.put("returnurl", "http://www.xiaoxiaopay.com");
+            jsonObject.put("notifyurl", "http://www.xiaoxiaopay.com");
+            jsonObject.put("paytype", paytype);
+            jsonObject.put("ip", "0.0.0.0");
+            transdata = jsonObject.toString();
+        } catch (JSONException e)
+        {
+            e.printStackTrace();
+        }
+
+        RxService.getPayApi().getPay(transdata, "xxxxx", "RSA")
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<PayResult>()
+                {
+                    @Override
+                    public void onCompleted()
+                    {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e)
+                    {
+
+                    }
+
+                    @Override
+                    public void onNext(PayResult payResult)
+                    {
+
+                    }
+                });
     }
 
     @Override
     public void dismiss()
     {
         super.dismiss();
-    }
-
-    @Override
-    public void onClick(View v)
-    {
-        int id = v.getId();
-        switch (id)
-        {
-            case R.id.id_querenzhifu:
-                Toast.makeText(mActivity, "-------------确定-------------", Toast.LENGTH_SHORT);
-                return;
-        }
     }
 }

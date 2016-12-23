@@ -151,11 +151,6 @@
         <!-- 锁屏广播接收器 -->
 
         <!-- 锁屏服务 -->
-        <service android:name=".LockService">
-            <intent-filter>
-                <category android:name="android.intent.category.DEFAULT"/>
-            </intent-filter>
-        </service>
         <service android:name=".UpdateService"/>
         <service
             android:name=".QQHongbaoService"
@@ -185,16 +180,12 @@
         </receiver>
 
         <activity
-            android:name=".wxapi.RightActivity"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait"
-            android:theme="@style/FullBleedTheme">
-        </activity>
-        <activity
             android:name=".SeniorActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/FullBleedTheme">
+            android:theme="@style/FullBleedTheme"
+            android:windowSoftInputMode="adjustPan"
+            >
         </activity>
         <activity android:name=".JiLuActivity">
         </activity>

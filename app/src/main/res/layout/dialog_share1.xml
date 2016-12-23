@@ -18,6 +18,7 @@
             android:layout_width="300dp"
             android:layout_height="50dp"
             >
+
             <TextView
                 android:layout_width="250dp"
                 android:layout_height="50dp"
@@ -29,9 +30,12 @@
                 android:textStyle="bold"/>
 
             <ImageView
+                android:id="@+id/id_dialog_cancel1"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="right"
+                android:padding="15dp"
+                android:src="@drawable/icon_close"
                 />
         </LinearLayout>
 
@@ -94,6 +98,7 @@
                     android:textSize="15dp"/>
 
                 <TextView
+                    android:id="@+id/id_share_prise"
                     android:layout_width="300dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -116,8 +121,8 @@
             android:gravity="left|center"
             android:paddingLeft="10dp"
             android:text="选择支付方式"
-            android:textSize="16dp"
-            android:textColor="#8d8d8d"/>
+            android:textColor="#8d8d8d"
+            android:textSize="16dp"/>
 
         <View
             android:layout_width="match_parent"
@@ -140,19 +145,27 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="2"
+                    android:padding="7dp"
+                    android:src="@drawable/icon_alipay"
                     />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:gravity="center|left"
+                    android:paddingLeft="10dp"
+                    android:text="支付宝支付"
+                    android:textColor="@android:color/black"
+                    android:textSize="16dp"/>
 
-                <CheckBox
+                <RadioButton
                     android:id="@+id/id_checkbox_zhifubao"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:layout_weight="2"/>
+                    android:layout_margin="12dp"
+                    android:layout_weight="2"
+                    android:button="@drawable/pay_selector"/>
 
 
             </LinearLayout>
@@ -172,19 +185,28 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="2"
+                    android:padding="7dp"
+                    android:src="@drawable/icon_wx"
                     />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:gravity="center|left"
+                    android:paddingLeft="10dp"
+                    android:text="微信支付"
+                    android:textColor="@android:color/black"
+                    android:textSize="16dp"/>
 
-                <CheckBox
+                <RadioButton
                     android:id="@+id/id_checkbox_weixin"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:layout_weight="2"/>
+                    android:layout_margin="12dp"
+                    android:layout_weight="2"
+                    android:button="@drawable/pay_selector"
+                    android:padding="5dp"/>
 
             </LinearLayout>
         </LinearLayout>
@@ -202,11 +224,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="8dp"
-            android:gravity="center"
-            android:text="确认支付"
-            android:background="@drawable/querenzhufu_bg"
-            android:textSize="18dp"
-            android:textColor="@android:color/white"/>
+            android:background="@drawable/pay_btn"/>
 
     </LinearLayout>
 

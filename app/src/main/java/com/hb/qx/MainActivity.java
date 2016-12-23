@@ -3,7 +3,6 @@ package com.hb.qx;
 import android.accessibilityservice.AccessibilityServiceInfo;
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -23,6 +22,7 @@ import android.widget.TextView;
 import com.baidu.mobads.InterstitialAd;
 import com.baidu.mobads.InterstitialAdListener;
 import com.data.bean.User;
+import com.hb.ui.RadarView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,11 +31,9 @@ import java.util.List;
 public class MainActivity extends Activity
 {
     private InterstitialAd interAd;
-    private GifMovieView gifImage;
     private RelativeLayout yes_layout;
     private LinearLayout no_layout;
     private OpenDialog container;
-    private TextView start_but;
     private TextView count, money;
     private HbApplication mApplication;
     private long mExitTime;
@@ -52,6 +50,7 @@ public class MainActivity extends Activity
     private SharedPreferences.Editor editor;
 
     List<User> userList;
+    private RadarView mRadarView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -61,15 +60,16 @@ public class MainActivity extends Activity
         sp = getSharedPreferences("chatpage", MODE_PRIVATE);
         userList = new ArrayList<>();
 
+        mRadarView = (RadarView) findViewById(R.id.radar_view);
+        mRadarView.setSearching(true);
+        mRadarView.addPoint();
+        mRadarView.addPoint();
+
         editor = sp.edit();
         editor.putInt("vip", 0);
         // editor.putInt("share1", 1);
 
         editor.commit();
-        gifImage = (GifMovieView) findViewById(R.id.gif_iamge);
-        gifImage.setMovieResource(R.drawable.qiang_progress);
-        gifImage.setVisibility(View.VISIBLE);
-
 
         mSVIP_all = (Button) findViewById(R.id.id_main_vip);
         mSVIP_all.setOnClickListener(new OnClickListener()
@@ -81,6 +81,7 @@ public class MainActivity extends Activity
                 startActivity(intent);
             }
         });
+
         mShare = (Button) findViewById(R.id.id_main_share);
         mShare.setOnClickListener(new OnClickListener()
         {
@@ -118,11 +119,10 @@ public class MainActivity extends Activity
 
         // 服务未启动
         no_layout = (LinearLayout) findViewById(R.id.no_commit);
-        start_but = (TextView) findViewById(R.id.start_but);
-        start_but.setOnClickListener(new OnClickListener()
+        no_layout.setOnClickListener(new OnClickListener()
         {
             @Override
-            public void onClick(View v)
+            public void onClick(View view)
             {
                 onButtonClicked();
             }
@@ -142,12 +142,6 @@ public class MainActivity extends Activity
         count.setText(String.valueOf(hb_count));
         money.setText(String.valueOf(all_moneny));
 
-        if (!isServierRuning())
-        {
-            // 开启锁
-            Intent lockservice = new Intent(this, LockService.class);
-            startService(lockservice);
-        }
         baidu_ad();
     }
 
@@ -241,7 +235,6 @@ public class MainActivity extends Activity
 
     }
 
-
     public void showOpen()
     {
         if (container == null)
@@ -264,25 +257,6 @@ public class MainActivity extends Activity
         // 如果本Activity是继承基类BaseActivity的，可注释掉此行。
         com.baidu.mobstat.StatService.onPause(this);
     }
-
-//    public boolean onKeyDown(int keyCode, KeyEvent event)
-//    {
-//        if (keyCode == KeyEvent.KEYCODE_BACK)
-//        {
-//            if ((System.currentTimeMillis() - mExitTime) > 2000)
-//            {
-//                Toast.makeText(this, "再按一次返回桌面", Toast.LENGTH_SHORT).show();
-//                mExitTime = System.currentTimeMillis();
-//                // interAd.showAd(this);
-//            } else
-//            {
-//                // interAd.destroy();
-//                finish();
-//            }
-//            return true;
-//        }
-//        return super.onKeyDown(keyCode, event);
-//    }
 
     @Override
     protected void onResume()
@@ -343,26 +317,26 @@ public class MainActivity extends Activity
         startActivity(mAccessibleIntent);
     }
 
-    // 判断服务是否运行
-    public boolean isServierRuning()
-    {
-        boolean isRunning = false;
-        ActivityManager activityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
-        List<ActivityManager.RunningServiceInfo> serviceList = activityManager
-                .getRunningServices(Integer.MAX_VALUE);
-        if (serviceList == null || serviceList.size() == 0)
-        {
-            return false;
-        }
-        for (int i = 0; i < serviceList.size(); i++)
-        {
-            if (serviceList.get(i).service.getClassName().equals(
-                    LockService.class.getName()))
-            {
-                isRunning = true;
-                break;
-            }
-        }
-        return isRunning;
-    }
+//    // 判断服务是否运行
+//    public boolean isServierRuning()
+//    {
+//        boolean isRunning = false;
+//        ActivityManager activityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+//        List<ActivityManager.RunningServiceInfo> serviceList = activityManager
+//                .getRunningServices(Integer.MAX_VALUE);
+//        if (serviceList == null || serviceList.size() == 0)
+//        {
+//            return false;
+//        }
+//        for (int i = 0; i < serviceList.size(); i++)
+//        {
+//            if (serviceList.get(i).service.getClassName().equals(
+//                    LockService.class.getName()))
+//            {
+//                isRunning = true;
+//                break;
+//            }
+//        }
+//        return isRunning;
+//    }
 }

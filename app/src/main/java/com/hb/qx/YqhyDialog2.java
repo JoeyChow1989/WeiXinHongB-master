@@ -31,50 +31,56 @@ import com.umeng.socialize.weixin.controller.UMWXHandler;
 import com.umeng.socialize.weixin.media.CircleShareContent;
 import com.umeng.socialize.weixin.media.WeiXinShareContent;
 
-public class YqhyDialog2 extends PopupWindow implements OnClickListener
+public class YqhyDialog2 extends PopupWindow
 {
-	private Activity mActivity;
-	private EditText editText;
-	private Button button;
+    private Activity mActivity;
+    private EditText editText;
+    private Button button;
+    private ImageView cancel;
 
 
-	public YqhyDialog2(Activity activity) {
-		mActivity = activity;
-		initView();
+    public YqhyDialog2(Activity activity)
+    {
+        mActivity = activity;
+        initView();
+    }
 
-	}
+    public void initView()
+    {
+        View rootView = LayoutInflater.from(mActivity).inflate(R.layout.dialog_share2, null);
+        editText = (EditText) rootView.findViewById(R.id.id_add_edittext);
+        button = (Button) rootView.findViewById(R.id.id_tijiao_phone);
+        cancel = (ImageView) rootView.findViewById(R.id.id_dialog_cancel2);
 
+        button.setOnClickListener(new OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
 
-	public void initView() {
-		View rootView = LayoutInflater.from(mActivity).inflate(R.layout.dialog_share2, null);
-		editText = (EditText) rootView.findViewById(R.id.id_add_edittext);
-		button = (Button) rootView.findViewById(R.id.id_tijiao_phone);
+            }
+        });
 
-		setContentView(rootView);
-		setWidth(LayoutParams.MATCH_PARENT);
-		setHeight(LayoutParams.MATCH_PARENT);
-		setFocusable(true);
-		setTouchable(true);
-		setOutsideTouchable(true);
-	}
+        cancel.setOnClickListener(new OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                dismiss();
+            }
+        });
 
-	@Override
-	public void dismiss() {
-		super.dismiss();
-	}
+        setContentView(rootView);
+        setWidth(LayoutParams.MATCH_PARENT);
+        setHeight(LayoutParams.MATCH_PARENT);
+        setFocusable(true);
+        setTouchable(true);
+        setOutsideTouchable(false);
+    }
 
-	@Override
-	public void onClick(View v) {
-		try {
-			int id = v.getId();
-			switch (id) {
-			case R.id.id_tijiao_phone:
-				return;
-			default:
-				break;
-			}
-		} catch (Exception e) {
-			dismiss();
-		}
-	}
+    @Override
+    public void dismiss()
+    {
+        super.dismiss();
+    }
 }

@@ -7,7 +7,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1.5"
+        android:layout_weight="1.6"
+        android:background="@drawable/top"
         android:orientation="horizontal"
         >
 
@@ -98,7 +99,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="4"
+                    android:layout_weight="3"
                     android:paddingTop="14dp"
                     android:text="元"
                     android:textColor="@color/gold"/>
@@ -109,29 +110,49 @@
 
     <RelativeLayout
         android:id="@+id/yes_commit"
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:visibility="gone"
         >
-        <com.hb.qx.GifMovieView
-            android:id="@+id/gif_iamge"
-            android:layout_width="match_parent"
-            android:layout_height="20dip"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="10dip"
-            android:scaleType="fitXY"/>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/gif_iamge"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dip"
-            android:text="正在抢红包"
-            android:textColor="#ffffff"
-            android:textSize="15sp"/>
+            android:id="@+id/id_running"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/gold_dark"
+            android:gravity="center"
+            android:text="正在抢红包中..."
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="17dp"
+            />
+
+        <FrameLayout
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/id_running"
+            android:layout_centerInParent="true"
+            >
+
+            <com.hb.ui.CircleView
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:layout_gravity="center"/>
+
+            <com.hb.ui.CircularImage
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:layout_gravity="center"
+                android:src="@drawable/scan_bg"/>
+
+            <com.hb.ui.RadarView
+                android:id="@+id/radar_view"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:layout_centerInParent="true"/>
+
+        </FrameLayout>
     </RelativeLayout>
 
     <LinearLayout
@@ -157,26 +178,21 @@
             android:textSize="14sp">
         </TextView>
 
-        <TextView
-            android:id="@+id/start_but"
-            android:layout_width="130dip"
-            android:layout_height="30dip"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15dip"
-            android:background="@drawable/start_border"
-            android:gravity="center"
-            android:text="立即开启"
-            android:textColor="#E03B37">
-        </TextView>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            android:src="@drawable/scan_bg"/>
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="30dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:layout_weight="1"
+        android:layout_weight="1.2"
         android:orientation="vertical">
 
         <Button

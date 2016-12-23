@@ -14,7 +14,6 @@
             android:id="@+id/more_layout"
             android:layout_width="50dip"
             android:layout_height="match_parent"
-            android:background="@drawable/bg_back"
             android:clickable="true"
             android:orientation="vertical" >
         </LinearLayout>
@@ -25,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="15dip"
+            android:padding="15dp"
             android:src="@drawable/back" />
 
         <TextView

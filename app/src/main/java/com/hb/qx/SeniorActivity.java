@@ -16,9 +16,11 @@ import android.view.accessibility.AccessibilityManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
@@ -33,6 +35,7 @@ public class SeniorActivity extends Activity
     private Spinner leizhi, niu, weishu;
     private ArrayAdapter arrayAdapter1, arrayAdapter2, arrayAdapter3;
 
+    private FrameLayout mFrameLayout;
     private SharedPreferences sp;
     private SharedPreferences.Editor editor;
 
@@ -59,6 +62,15 @@ public class SeniorActivity extends Activity
             }
         });
 
+        mFrameLayout.setOnClickListener(new OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                showMyDialog();
+            }
+        });
+
         SvipAll.setOnClickListener(new OnClickListener()
         {
             @Override
@@ -66,7 +78,7 @@ public class SeniorActivity extends Activity
             {
                 if (sp.getInt("vip", 0) == 0)
                 {
-                    shareSvip();
+                    shareSvip("22");
                 } else
                 {
                     if (mSVIPall.isChecked() == true)
@@ -112,7 +124,7 @@ public class SeniorActivity extends Activity
             {
                 if (sp.getInt("vip", 0) == 0)
                 {
-                    shareSvip();
+                    shareSvip("22");
                 } else
                 {
                     if (mSaoLei.isChecked() == true)
@@ -138,7 +150,7 @@ public class SeniorActivity extends Activity
             {
                 if (sp.getInt("vip", 0) == 0)
                 {
-                    shareSvip();
+                    shareSvip("22");
                 } else
                 {
                     if (mNiuNiu.isChecked() == true)
@@ -164,7 +176,7 @@ public class SeniorActivity extends Activity
             {
                 if (sp.getInt("vip", 0) == 0)
                 {
-                    shareSvip();
+                    shareSvip("22");
                 } else
                 {
                     if (mWeiHao.isChecked() == true)
@@ -190,7 +202,7 @@ public class SeniorActivity extends Activity
             {
                 if (sp.getInt("vip", 0) == 0)
                 {
-                    shareSvip();
+                    shareSvip("22");
                 } else
                 {
                     if (mShouqi.isChecked() == true)
@@ -216,7 +228,7 @@ public class SeniorActivity extends Activity
             {
                 if (sp.getInt("vip", 0) == 0)
                 {
-                    shareSvip();
+                    shareSvip("22");
                 } else
                 {
                     if (mDabao.isChecked() == true)
@@ -243,7 +255,7 @@ public class SeniorActivity extends Activity
             {
                 if (sp.getInt("vip", 0) == 0)
                 {
-                    shareSvip();
+                    shareSvip("22");
                 } else
                 {
                     if (mDuoBi.isChecked() == true)
@@ -270,7 +282,7 @@ public class SeniorActivity extends Activity
             {
                 if (sp.getInt("vip", 0) == 0)
                 {
-                    shareSvip();
+                    shareSvip("22");
                 } else
                 {
                     if (mJiaSu.isChecked() == true)
@@ -297,7 +309,7 @@ public class SeniorActivity extends Activity
             {
                 if (sp.getInt("vip", 0) == 0)
                 {
-                    shareSvip();
+                    shareSvip("22");
                 } else
                 {
                     if (mGanrao.isChecked() == true)
@@ -322,7 +334,7 @@ public class SeniorActivity extends Activity
             {
                 if (sp.getInt("vip", 0) == 0)
                 {
-                    shareSvip();
+                    shareSvip("26");
                 } else
                 {
                     if (mPingXi.isChecked() == true)
@@ -348,7 +360,7 @@ public class SeniorActivity extends Activity
             {
                 if (sp.getInt("vip", 0) == 0)
                 {
-                    shareSvip();
+                    shareSvip("11");
                 } else
                 {
                     if (mCloseAD.isChecked() == true)
@@ -373,7 +385,7 @@ public class SeniorActivity extends Activity
             {
                 if (sp.getInt("vip", 0) == 0)
                 {
-                    shareSvip();
+                    shareSvip("223");
                 } else
                 {
                     if (mAutoThanks.isChecked() == true)
@@ -400,7 +412,7 @@ public class SeniorActivity extends Activity
             {
                 if (sp.getInt("vip", 0) == 0)
                 {
-                    shareSvip();
+                    shareSvip("69");
                 } else
                 {
                     if (mShenmi.isChecked() == true)
@@ -506,6 +518,25 @@ public class SeniorActivity extends Activity
         });
     }
 
+    private void showMyDialog()
+    {
+        YqhyDialog2 yyDialog = new YqhyDialog2(SeniorActivity.this);
+        try
+        {
+            yyDialog.showAtLocation(SeniorActivity.this.getWindow()
+                    .getDecorView(), Gravity.CENTER, 0, 0);
+        } catch (Exception e)
+        {
+            if (yyDialog != null)
+            {
+                if (yyDialog.isShowing())
+                {
+                    yyDialog.dismiss();
+                }
+            }
+        }
+    }
+
     @Override
     protected void onStart()
     {
@@ -538,6 +569,7 @@ public class SeniorActivity extends Activity
         VoiseRemaid = (LinearLayout) findViewById(R.id.id_linear_senior_voise);
         NoAuto = (LinearLayout) findViewById(R.id.id_linear_senior_noauto);
         MyOwnBao = (LinearLayout) findViewById(R.id.id_linear_senior_myown);
+        mFrameLayout = (FrameLayout) findViewById(R.id.id_senior_huodongxiangqing);
 
 
         mStartService = (ToggleButton) findViewById(R.id.id_toggle_senior_startservice);
@@ -563,6 +595,10 @@ public class SeniorActivity extends Activity
         leizhi = (Spinner) findViewById(R.id.id_main_spinner1);
         niu = (Spinner) findViewById(R.id.id_main_spinner2);
         weishu = (Spinner) findViewById(R.id.id_main_spinner3);
+
+        leizhi.setSelection(sp.getInt("leizhi", 0), true);
+        niu.setSelection(sp.getInt("niu", 0), true);
+        weishu.setSelection(sp.getInt("weishu", 0), true);
 
         if (sp.getInt("svipall", 0) == 1)
         {
@@ -702,11 +738,59 @@ public class SeniorActivity extends Activity
         leizhi.setAdapter(arrayAdapter1);
         niu.setAdapter(arrayAdapter2);
         weishu.setAdapter(arrayAdapter3);
+
+        leizhi.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l)
+            {
+                editor.putInt("leizhi", i);
+                editor.commit();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView)
+            {
+
+            }
+        });
+
+        niu.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l)
+            {
+                editor.putInt("niu", i);
+                editor.commit();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView)
+            {
+
+            }
+        });
+
+        weishu.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l)
+            {
+                editor.putInt("weishu", i);
+                editor.commit();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView)
+            {
+
+            }
+        });
     }
 
-    private void shareSvip()
+    private void shareSvip(String money)
     {
-        YqhyDialog1 yyDialog = new YqhyDialog1(SeniorActivity.this);
+        YqhyDialog1 yyDialog = new YqhyDialog1(SeniorActivity.this, money);
         try
         {
             yyDialog.showAtLocation(SeniorActivity.this.getWindow()

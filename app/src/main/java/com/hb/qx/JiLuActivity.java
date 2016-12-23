@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -22,6 +23,7 @@ public class JiLuActivity extends AppCompatActivity
     private List<User> realuserList;
     private ListView mListView;
     private JiLuAdapter mJiLuAdapter;
+    private ImageView img_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -29,6 +31,17 @@ public class JiLuActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jilu);
         mListView = (ListView) findViewById(R.id.id_jilu_listview);
+        img_back = (ImageView) findViewById(R.id.jilu_senior_back);
+
+        img_back.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                JiLuActivity.this.finish();
+            }
+        });
+
         userList = new ArrayList<>();
         realuserList = new ArrayList<>();
     }

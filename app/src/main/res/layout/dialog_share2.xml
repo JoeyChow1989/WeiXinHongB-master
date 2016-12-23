@@ -31,9 +31,12 @@
                 android:textStyle="bold"/>
 
             <ImageView
+                android:id="@+id/id_dialog_cancel2"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="right"
+                android:padding="15dp"
+                android:src="@drawable/icon_close"
                 />
         </LinearLayout>
 
@@ -67,9 +70,6 @@
                 android:layout_weight="1"
                 android:textColor="@android:color/holo_red_dark"
                 android:text="满足条件的用户请在下面输入您需要充值的手机号码，我们会在约定的时间给您的手机号码充值话费。"/>
-
-
-
         </LinearLayout>
 
         <EditText
@@ -78,6 +78,8 @@
             android:layout_height="40dp"
             android:hint="请输入您需要充值的手机号码"
             android:textSize="12dp"
+            android:phoneNumber="true"
+            android:singleLine="true"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             />
@@ -86,10 +88,12 @@
             android:id="@+id/id_tijiao_phone"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="10dp"
             android:text="提交"
+            android:background="@drawable/bg_tijiao_botton"
             android:gravity="center"
             android:textSize="16dp"
             android:textColor="@android:color/white"

@@ -74,7 +74,7 @@ public class UpdateService extends Service
 	public void showNotification() {
 		notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 		notification = new Notification();
-		notification.icon = R.drawable.icon;
+		notification.icon = R.mipmap.icon;
 		// 这个参数是通知提示闪出来的值.
 		notification.tickerText = "开始下载";
 		// pendingIntent = PendingIntent.getActivity(this, 0, updateIntent, 0);
