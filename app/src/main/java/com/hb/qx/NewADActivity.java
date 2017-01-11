@@ -7,6 +7,8 @@ import android.util.Log;
 import com.baidu.mobads.InterstitialAd;
 import com.baidu.mobads.InterstitialAdListener;
 
+import gediaoshangpin.com.R;
+
 public class NewADActivity extends Activity
 {
 

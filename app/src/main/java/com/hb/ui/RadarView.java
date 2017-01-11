@@ -1,27 +1,22 @@
 package com.hb.ui;
 
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Paint.Style;
-import android.graphics.Shader;
-import android.graphics.SweepGradient;
-import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.WindowManager;
 
-import com.hb.qx.R;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import gediaoshangpin.com.R;
 
 /**
  * 2015/12/06 22:49

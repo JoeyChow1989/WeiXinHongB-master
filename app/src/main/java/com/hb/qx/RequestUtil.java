@@ -1,6 +1,5 @@
 package com.hb.qx;
 
-
 import in.srain.cube.request.FailData;
 import in.srain.cube.request.JsonData;
 import in.srain.cube.request.RequestData;

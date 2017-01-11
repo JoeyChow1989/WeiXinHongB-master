@@ -25,7 +25,7 @@
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:padding="15dp"
-            android:src="@drawable/back" />
+            android:src="@drawable/back_move_details_normal" />
 
         <TextView
             android:layout_width="wrap_content"

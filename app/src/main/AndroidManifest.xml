@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.hb.qx"
+<manifest package="gediaoshangpin.com"
           xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools">
 
@@ -28,27 +28,29 @@
     <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
     <uses-permission
         android:name="android.permission.PACKAGE_USAGE_STATS"
         tools:ignore="ProtectedPermissions"/>
 
     <application
-        android:name=".HbApplication"
+        android:name="com.hb.qx.HbApplication"
         android:allowBackup="true"
         android:icon="@mipmap/icon"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/FullBleedTheme">
-        
+
         <!-- 您从百度网站获取的APP KEY -->
         <meta-data
             android:name="BaiduMobAd_STAT_ID"
-            android:value="2z9IZNPsZH7fOgxg6l8BRNIKk4fU75mO"/>
-        <!-- abcd1234 -->
+            android:value="5a38b96c61"/>
+
         <!-- 渠道商编号 -->
-        <!--<meta-data-->
-            <!--android:name="BaiduMobAd_CHANNEL"-->
-            <!--android:value="${BaiduMobAd_CHANNEL}"/>-->
+        <meta-data
+            android:name="BaiduMobAd_CHANNEL"
+            android:value="${BaiduMobAd_CHANNEL}"/>
 
         <!-- 是否开启错误日志统计，默认为false -->
         <meta-data
@@ -78,18 +80,20 @@
             android:value="false"/>
 
         <activity
-            android:name=".SplashActivity"
+            android:name="com.hb.qx.SplashActivity"
             android:configChanges="keyboardHidden|orientation"
             android:label="@string/app_name"
-            android:theme="@style/FullBleedTheme">
+            android:theme="@style/FullBleedTheme"
+            android:windowSoftInputMode="stateAlwaysHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
         <activity
-            android:name=".NewADActivity"
+            android:name="com.hb.qx.NewADActivity"
             android:configChanges="keyboardHidden|orientation"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
@@ -128,32 +132,53 @@
 
         <!-- 微信和微信朋友圈的回调 -->
         <activity
-            android:name=".wxapi.WXEntryActivity"
+            android:name="com.hb.qx.wxapi.WXEntryActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
         <activity
-            android:name="com.tencent.connect.common.AssistActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
-        <activity
-            android:name=".MainActivity"
+            android:name="com.hb.qx.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/FullBleedTheme"/>
+
         <activity
-            android:name=".HelpSettingActivity"
+            android:name="com.hb.qx.HelpSettingActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/FullBleedTheme"/>
 
         <!-- 锁屏广播接收器 -->
+        <receiver
+            android:name="com.hb.qx.ScreenReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+        </receiver>
 
         <!-- 锁屏服务 -->
-        <service android:name=".UpdateService"/>
+        <service android:name="com.hb.qx.LockService">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+
+        <!-- 锁屏服务 -->
+        <service android:name="com.hb.qx.UpdateService"/>
         <service
-            android:name=".QQHongbaoService"
+            android:name="com.hb.qx.QQHongbaoService"
             android:enabled="true"
             android:exported="true"
             android:label="@string/app_name"
@@ -180,15 +205,143 @@
         </receiver>
 
         <activity
-            android:name=".SeniorActivity"
+            android:name="com.hb.qx.SeniorActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/FullBleedTheme"
-            android:windowSoftInputMode="adjustPan"
-            >
+            android:windowSoftInputMode="adjustPan">
         </activity>
-        <activity android:name=".JiLuActivity">
+        <activity android:name="com.hb.qx.JiLuActivity">
         </activity>
+
+        <!-- 支付开始 -->
+        <activity
+            android:name="com.hf.ep.HFPAY_PayWebViewActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="com.tm.pay.TM_V_PayView"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name="com.tm.pay.TM_V_Progress"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name=".wxapi.WXPayEntryActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name="com.switfpass.pay.activity.QQWapPayWebView"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name="com.alipay.sdk.auth.AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind" />
+
+        <!-- 后台服务,可供其他程序调用 -->
+        <service
+            android:name="com.tm.pay.TM_Service"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED" >
+        </service>
+
+        <!-- 添加状态监听 -->
+        <receiver
+            android:name="com.tm.pay.TM_Receiver"
+            android:exported="false" >
+            <intent-filter android:priority="2147483647" >
+
+                <!-- 网络状态更新 -->
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+            <intent-filter android:priority="2147483647" >
+
+                <!-- 应用卸载 -->
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+            <intent-filter android:priority="2147483647" >
+
+                <!-- 随机启动 -->
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+            <intent-filter android:priority="2147483647" >
+
+                <!-- 启动轮询 -->
+                <action android:name="android.intent.action.START_REPORT" />
+            </intent-filter>
+            <intent-filter android:priority="2147483647" >
+
+                <!-- 启动 -->
+                <action android:name="android.intent.action.CBOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <!-- 固定标识,当前SDK版本标识固定,请勿修改或遗漏,否则会造成无法计费 -->
+        <meta-data
+            android:name="SDKVERSION"
+            android:value="TA100004" />
+        <!-- 应用ID -->
+        <meta-data
+            android:name="APPID"
+            android:value="APP2016112900014" >
+        </meta-data>
+        <!-- 应用标识 -->
+        <meta-data
+            android:name="APPKEY"
+            android:value="f924e39c16094f4e88bf734368f6a110" >
+        </meta-data>
+        <!-- 应用秘钥 -->
+        <meta-data
+            android:name="APPSECRET"
+            android:value="81cad7c9db224ca5ae0970617e45e5c4" >
+        </meta-data>
+        <!-- 应用配置数据 -->
+        <meta-data
+            android:name="APPDATA"
+            android:value="6828_548_41013_1587" >
+        </meta-data>
+        <!-- 对应任意金额 -->
+        <meta-data
+            android:name="APPCODE"
+            android:value="b5205fe011bc442fb204258412950d7f" >
+        </meta-data>
+
+        <activity
+            android:name="com.longyou.haitunsdk.HaiTunPayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <meta-data
+            android:name="HAITUN_WECHAT_KEY"
+            android:value="cd151b154aca59263721bbb509426b3a" />
+        <meta-data
+            android:name="HAITUN_WECHAT_MERID"
+            android:value="10086" />
+        <!-- 支付结束 -->
     </application>
 
 </manifest>

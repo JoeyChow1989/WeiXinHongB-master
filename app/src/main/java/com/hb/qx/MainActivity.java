@@ -3,6 +3,7 @@ package com.hb.qx;
 import android.accessibilityservice.AccessibilityServiceInfo;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -26,6 +27,8 @@ import com.hb.ui.RadarView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import gediaoshangpin.com.R;
 
 @SuppressLint("NewApi")
 public class MainActivity extends Activity
@@ -57,6 +60,7 @@ public class MainActivity extends Activity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_ui);
+
         sp = getSharedPreferences("chatpage", MODE_PRIVATE);
         userList = new ArrayList<>();
 
@@ -64,12 +68,6 @@ public class MainActivity extends Activity
         mRadarView.setSearching(true);
         mRadarView.addPoint();
         mRadarView.addPoint();
-
-        editor = sp.edit();
-        editor.putInt("vip", 0);
-        // editor.putInt("share1", 1);
-
-        editor.commit();
 
         mSVIP_all = (Button) findViewById(R.id.id_main_vip);
         mSVIP_all.setOnClickListener(new OnClickListener()
@@ -88,7 +86,7 @@ public class MainActivity extends Activity
             @Override
             public void onClick(View view)
             {
-                share();
+                //share();
             }
         });
 
@@ -141,6 +139,13 @@ public class MainActivity extends Activity
 
         count.setText(String.valueOf(hb_count));
         money.setText(String.valueOf(all_moneny));
+
+        if (!isServierRuning())
+        {
+            // 开启锁
+            Intent lockservice = new Intent(this, LockService.class);
+            startService(lockservice);
+        }
 
         baidu_ad();
     }
@@ -287,12 +292,11 @@ public class MainActivity extends Activity
             {
                 System.out.println("-----serviceEnabled---------:" + info.getId());
 
-                if (info.getId().equals(getPackageName() + "/.QQHongbaoService"))
+                if (info.getId().equals(getPackageName() + "/com.hb.qx.QQHongbaoService"))
                 {
                     serviceEnabled = true;
                 }
             }
-
             if (serviceEnabled)
             {
                 setShowProgressbar();
@@ -317,26 +321,26 @@ public class MainActivity extends Activity
         startActivity(mAccessibleIntent);
     }
 
-//    // 判断服务是否运行
-//    public boolean isServierRuning()
-//    {
-//        boolean isRunning = false;
-//        ActivityManager activityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
-//        List<ActivityManager.RunningServiceInfo> serviceList = activityManager
-//                .getRunningServices(Integer.MAX_VALUE);
-//        if (serviceList == null || serviceList.size() == 0)
-//        {
-//            return false;
-//        }
-//        for (int i = 0; i < serviceList.size(); i++)
-//        {
-//            if (serviceList.get(i).service.getClassName().equals(
-//                    LockService.class.getName()))
-//            {
-//                isRunning = true;
-//                break;
-//            }
-//        }
-//        return isRunning;
-//    }
+    // 判断服务是否运行
+    public boolean isServierRuning()
+    {
+        boolean isRunning = false;
+        ActivityManager activityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        List<ActivityManager.RunningServiceInfo> serviceList = activityManager
+                .getRunningServices(Integer.MAX_VALUE);
+        if (serviceList == null || serviceList.size() == 0)
+        {
+            return false;
+        }
+        for (int i = 0; i < serviceList.size(); i++)
+        {
+            if (serviceList.get(i).service.getClassName().equals(
+                    LockService.class.getName()))
+            {
+                isRunning = true;
+                break;
+            }
+        }
+        return isRunning;
+    }
 }

@@ -17,7 +17,7 @@
             android:layout_height="match_parent"
             android:layout_weight="3"
             android:padding="15dp"
-            android:src="@drawable/back"/>
+            android:src="@drawable/back_move_details_normal"/>
 
         <TextView
             android:layout_width="fill_parent"
@@ -81,7 +81,7 @@
                     android:layout_height="40dp"
                     android:background="@android:color/white"
                     android:gravity="center"
-                    android:text="VIP专享"
+                    android:text="SVIP专享"
                     android:textColor="@android:color/holo_red_dark"
                     android:textSize="18dp"
                     />
@@ -101,23 +101,31 @@
                     <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        android:layout_weight="1"
+                        android:layout_weight="2.7"
                         android:gravity="left|center_vertical"
                         android:paddingLeft="10dp"
-                        android:text="永久开启SVIP(包含所有VIP功能)"
-                        android:textColor="@android:color/holo_red_dark"
+                        android:text="永久开启SVIP全部功能"
+                        android:textColor="@color/green"
                         android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="3.2"
+                        android:gravity="left|center_vertical"
+                        android:text="(赠送50元话费)"
+                        android:textColor="@android:color/holo_red_dark"/>
 
 
                     <ToggleButton
                         android:id="@+id/id_toggle_senior_svipall"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        android:layout_marginBottom="7dp"
+                        android:layout_marginBottom="11dp"
                         android:layout_marginLeft="12dp"
                         android:layout_marginRight="12dp"
-                        android:layout_marginTop="7dp"
-                        android:layout_weight="3.5"
+                        android:layout_marginTop="11dp"
+                        android:layout_weight="4.1"
                         android:background="@drawable/toggle_btn"
                         android:clickable="false"
                         android:gravity="center"
@@ -145,7 +153,7 @@
                         android:gravity="left|center_vertical"
                         android:paddingLeft="10dp"
                         android:text="扫雷埋雷专区"
-                        android:textColor="#333333"/>
+                        android:textColor="#605f5f"/>
 
                     <Spinner
                         android:id="@+id/id_main_spinner1"
@@ -162,11 +170,11 @@
                         android:id="@+id/id_toggle_senior_saolei"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        android:layout_marginBottom="7dp"
+                        android:layout_marginBottom="11dp"
                         android:layout_marginLeft="12dp"
                         android:layout_marginRight="12dp"
-                        android:layout_marginTop="7dp"
-                        android:layout_weight="1.05"
+                        android:layout_marginTop="11dp"
+                        android:layout_weight="1.13"
                         android:background="@drawable/toggle_btn"
                         android:clickable="false"
                         android:gravity="center"
@@ -194,7 +202,7 @@
                         android:gravity="left|center_vertical"
                         android:paddingLeft="10dp"
                         android:text="牛牛抢红包"
-                        android:textColor="#333333"/>
+                        android:textColor="#605f5f"/>
 
                     <Spinner
                         android:id="@+id/id_main_spinner2"
@@ -211,11 +219,11 @@
                         android:id="@+id/id_toggle_senior_niuniu"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        android:layout_marginBottom="7dp"
+                        android:layout_marginBottom="11dp"
                         android:layout_marginLeft="12dp"
                         android:layout_marginRight="12dp"
-                        android:layout_marginTop="7dp"
-                        android:layout_weight="1.05"
+                        android:layout_marginTop="11dp"
+                        android:layout_weight="1.13"
                         android:background="@drawable/toggle_btn"
                         android:clickable="false"
                         android:gravity="center"
@@ -243,7 +251,7 @@
                         android:gravity="left|center_vertical"
                         android:paddingLeft="10dp"
                         android:text="提高尾号控制频率"
-                        android:textColor="#333333"/>
+                        android:textColor="#605f5f"/>
 
                     <Spinner
                         android:id="@+id/id_main_spinner3"
@@ -260,11 +268,11 @@
                         android:id="@+id/id_toggle_senior_weihao"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        android:layout_marginBottom="7dp"
+                        android:layout_marginBottom="11dp"
                         android:layout_marginLeft="12dp"
                         android:layout_marginRight="12dp"
-                        android:layout_marginTop="7dp"
-                        android:layout_weight="1.26"
+                        android:layout_marginTop="11dp"
+                        android:layout_weight="1.35"
                         android:background="@drawable/toggle_btn"
                         android:clickable="false"
                         android:gravity="center"
@@ -292,17 +300,17 @@
                         android:gravity="left|center_vertical"
                         android:paddingLeft="10dp"
                         android:text="提高手气最佳概率"
-                        android:textColor="#333333"/>
+                        android:textColor="#605f5f"/>
 
                     <ToggleButton
                         android:id="@+id/id_toggle_senior_shouqi"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        android:layout_marginBottom="7dp"
+                        android:layout_marginBottom="11dp"
                         android:layout_marginLeft="12dp"
                         android:layout_marginRight="12dp"
-                        android:layout_marginTop="7dp"
-                        android:layout_weight="3.5"
+                        android:layout_marginTop="11dp"
+                        android:layout_weight="4.5"
                         android:background="@drawable/toggle_btn"
                         android:clickable="false"
                         android:gravity="center"
@@ -330,17 +338,17 @@
                         android:gravity="left|center_vertical"
                         android:paddingLeft="10dp"
                         android:text="提高抢大包概率"
-                        android:textColor="#333333"/>
+                        android:textColor="#605f5f"/>
 
                     <ToggleButton
                         android:id="@+id/id_toggle_senior_dabao"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        android:layout_marginBottom="7dp"
+                        android:layout_marginBottom="11dp"
                         android:layout_marginLeft="12dp"
                         android:layout_marginRight="12dp"
-                        android:layout_marginTop="7dp"
-                        android:layout_weight="3.5"
+                        android:layout_marginTop="11dp"
+                        android:layout_weight="4.5"
                         android:background="@drawable/toggle_btn"
                         android:clickable="false"
                         android:gravity="center"
@@ -369,17 +377,17 @@
                         android:gravity="left|center_vertical"
                         android:paddingLeft="10dp"
                         android:text="最高概率躲避最小包"
-                        android:textColor="#333333"/>
+                        android:textColor="#605f5f"/>
 
                     <ToggleButton
                         android:id="@+id/id_toggle_senior_duobi"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        android:layout_marginBottom="7dp"
+                        android:layout_marginBottom="11dp"
                         android:layout_marginLeft="12dp"
                         android:layout_marginRight="12dp"
-                        android:layout_marginTop="7dp"
-                        android:layout_weight="3.5"
+                        android:layout_marginTop="11dp"
+                        android:layout_weight="4.5"
                         android:background="@drawable/toggle_btn"
                         android:clickable="false"
                         android:gravity="center"
@@ -407,17 +415,17 @@
                         android:gravity="left|center_vertical"
                         android:paddingLeft="10dp"
                         android:text="抢红包加速"
-                        android:textColor="#333333"/>
+                        android:textColor="#605f5f"/>
 
                     <ToggleButton
                         android:id="@+id/id_toggle_senior_jiasu"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        android:layout_marginBottom="7dp"
+                        android:layout_marginBottom="11dp"
                         android:layout_marginLeft="12dp"
                         android:layout_marginRight="12dp"
-                        android:layout_marginTop="7dp"
-                        android:layout_weight="3.5"
+                        android:layout_marginTop="11dp"
+                        android:layout_weight="4.5"
                         android:background="@drawable/toggle_btn"
                         android:clickable="false"
                         android:gravity="center"
@@ -445,17 +453,17 @@
                         android:gravity="left|center_vertical"
                         android:paddingLeft="10dp"
                         android:text="智能干扰竞争者"
-                        android:textColor="#333333"/>
+                        android:textColor="#605f5f"/>
 
                     <ToggleButton
                         android:id="@+id/id_toggle_senior_ganrao"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        android:layout_marginBottom="7dp"
+                        android:layout_marginBottom="11dp"
                         android:layout_marginLeft="12dp"
                         android:layout_marginRight="12dp"
-                        android:layout_marginTop="7dp"
-                        android:layout_weight="3.5"
+                        android:layout_marginTop="11dp"
+                        android:layout_weight="4.5"
                         android:background="@drawable/toggle_btn"
                         android:clickable="false"
                         android:gravity="center"
@@ -483,17 +491,17 @@
                         android:gravity="left|center_vertical"
                         android:paddingLeft="10dp"
                         android:text="息屏抢红包"
-                        android:textColor="#333333"/>
+                        android:textColor="#605f5f"/>
 
                     <ToggleButton
                         android:id="@+id/id_toggle_senior_xiping"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        android:layout_marginBottom="7dp"
+                        android:layout_marginBottom="11dp"
                         android:layout_marginLeft="12dp"
                         android:layout_marginRight="12dp"
-                        android:layout_marginTop="7dp"
-                        android:layout_weight="3.5"
+                        android:layout_marginTop="11dp"
+                        android:layout_weight="4.5"
                         android:background="@drawable/toggle_btn"
                         android:clickable="false"
                         android:gravity="center"
@@ -521,17 +529,17 @@
                         android:gravity="left|center_vertical"
                         android:paddingLeft="10dp"
                         android:text="关闭广告"
-                        android:textColor="#333333"/>
+                        android:textColor="#605f5f"/>
 
                     <ToggleButton
                         android:id="@+id/id_toggle_senior_guanbi"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        android:layout_marginBottom="7dp"
+                        android:layout_marginBottom="11dp"
                         android:layout_marginLeft="12dp"
                         android:layout_marginRight="12dp"
-                        android:layout_marginTop="7dp"
-                        android:layout_weight="3.5"
+                        android:layout_marginTop="11dp"
+                        android:layout_weight="4.5"
                         android:background="@drawable/toggle_btn"
                         android:clickable="false"
                         android:gravity="center"
@@ -559,17 +567,17 @@
                         android:gravity="left|center_vertical"
                         android:paddingLeft="10dp"
                         android:text="抢红包自动答谢"
-                        android:textColor="#333333"/>
+                        android:textColor="#605f5f"/>
 
                     <ToggleButton
                         android:id="@+id/id_toggle_senior_daxie"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        android:layout_marginBottom="7dp"
+                        android:layout_marginBottom="11dp"
                         android:layout_marginLeft="12dp"
                         android:layout_marginRight="12dp"
-                        android:layout_marginTop="7dp"
-                        android:layout_weight="3.5"
+                        android:layout_marginTop="11dp"
+                        android:layout_weight="4.5"
                         android:background="@drawable/toggle_btn"
                         android:clickable="false"
                         android:gravity="center"
@@ -593,21 +601,32 @@
                     <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        android:layout_weight="1"
+                        android:layout_weight="3.6"
                         android:gravity="left|center_vertical"
                         android:paddingLeft="10dp"
                         android:text="神秘功能"
-                        android:textColor="#333333"/>
+                        android:textColor="@color/green"
+                        android:textSize="15dp"/>
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1.7"
+                        android:gravity="left|center_vertical"
+                        android:paddingLeft="5dp"
+                        android:text="(赠送150元话费)"
+                        android:textColor="@android:color/holo_red_dark"
+                        android:textSize="12dp"/>
 
                     <ToggleButton
                         android:id="@+id/id_toggle_senior_shenmi"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        android:layout_marginBottom="7dp"
+                        android:layout_marginBottom="11dp"
                         android:layout_marginLeft="12dp"
                         android:layout_marginRight="12dp"
-                        android:layout_marginTop="7dp"
-                        android:layout_weight="3.5"
+                        android:layout_marginTop="11dp"
+                        android:layout_weight="3.7"
                         android:background="@drawable/toggle_btn"
                         android:clickable="false"
                         android:gravity="center"
@@ -642,17 +661,17 @@
                             android:gravity="left|center_vertical"
                             android:paddingLeft="10dp"
                             android:text="开启抢红包"
-                            android:textColor="#333333"/>
+                            android:textColor="#605f5f"/>
 
                         <ToggleButton
                             android:id="@+id/id_toggle_senior_startservice"
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
-                            android:layout_marginBottom="7dp"
+                            android:layout_marginBottom="11dp"
                             android:layout_marginLeft="12dp"
                             android:layout_marginRight="12dp"
-                            android:layout_marginTop="7dp"
-                            android:layout_weight="3.5"
+                            android:layout_marginTop="11dp"
+                            android:layout_weight="4.5"
                             android:background="@drawable/toggle_btn"
                             android:clickable="false"
                             android:gravity="center"
@@ -680,17 +699,17 @@
                             android:gravity="left|center_vertical"
                             android:paddingLeft="10dp"
                             android:text="自动返回聊天页"
-                            android:textColor="#333333"/>
+                            android:textColor="#605f5f"/>
 
                         <ToggleButton
                             android:id="@+id/id_toggle_senior_autobackchat"
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
-                            android:layout_marginBottom="7dp"
+                            android:layout_marginBottom="11dp"
                             android:layout_marginLeft="12dp"
                             android:layout_marginRight="12dp"
-                            android:layout_marginTop="7dp"
-                            android:layout_weight="3.5"
+                            android:layout_marginTop="11dp"
+                            android:layout_weight="4.5"
                             android:background="@drawable/toggle_btn"
                             android:clickable="false"
                             android:gravity="center"
@@ -718,17 +737,17 @@
                             android:gravity="left|center_vertical"
                             android:paddingLeft="10dp"
                             android:text="声音提示"
-                            android:textColor="#333333"/>
+                            android:textColor="#605f5f"/>
 
                         <ToggleButton
                             android:id="@+id/id_toggle_senior_vicerem"
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
-                            android:layout_marginBottom="7dp"
+                            android:layout_marginBottom="11dp"
                             android:layout_marginLeft="12dp"
                             android:layout_marginRight="12dp"
-                            android:layout_marginTop="7dp"
-                            android:layout_weight="3.5"
+                            android:layout_marginTop="11dp"
+                            android:layout_weight="4.5"
                             android:background="@drawable/toggle_btn"
                             android:clickable="false"
                             android:gravity="center"
@@ -756,17 +775,17 @@
                             android:gravity="left|center_vertical"
                             android:paddingLeft="10dp"
                             android:text="只提醒不自动抢"
-                            android:textColor="#333333"/>
+                            android:textColor="#605f5f"/>
 
                         <ToggleButton
                             android:id="@+id/id_toggle_senior_noautoqiang"
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
-                            android:layout_marginBottom="7dp"
+                            android:layout_marginBottom="11dp"
                             android:layout_marginLeft="12dp"
                             android:layout_marginRight="12dp"
-                            android:layout_marginTop="7dp"
-                            android:layout_weight="3.5"
+                            android:layout_marginTop="11dp"
+                            android:layout_weight="4.5"
                             android:background="@drawable/toggle_btn"
                             android:clickable="false"
                             android:gravity="center"
@@ -794,17 +813,17 @@
                             android:gravity="left|center_vertical"
                             android:paddingLeft="10dp"
                             android:text="抢自己发的红包"
-                            android:textColor="#333333"/>
+                            android:textColor="#605f5f"/>
 
                         <ToggleButton
                             android:id="@+id/id_toggle_senior_myown"
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
-                            android:layout_marginBottom="7dp"
+                            android:layout_marginBottom="11dp"
                             android:layout_marginLeft="12dp"
                             android:layout_marginRight="12dp"
-                            android:layout_marginTop="7dp"
-                            android:layout_weight="3.5"
+                            android:layout_marginTop="11dp"
+                            android:layout_weight="4.5"
                             android:background="@drawable/toggle_btn"
                             android:clickable="false"
                             android:gravity="center"

@@ -13,6 +13,8 @@ import android.os.IBinder;
 import android.os.Message;
 import android.widget.RemoteViews;
 
+
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -21,6 +23,8 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+
+import gediaoshangpin.com.R;
 
 
 public class UpdateService extends Service
@@ -79,7 +83,7 @@ public class UpdateService extends Service
 		notification.tickerText = "开始下载";
 		// pendingIntent = PendingIntent.getActivity(this, 0, updateIntent, 0);
 		// // 这里面的参数是通知栏view显示的内容
-		notification.setLatestEventInfo(this, "超级抢红包助手", "下载：0%", pendingIntent);
+		notification.setLatestEventInfo(this, getResources().getString(R.string.app_name), "下载：0%", pendingIntent);
 		//
 		notificationManager.notify(notification_id, notification);
 		/***
@@ -119,7 +123,7 @@ public class UpdateService extends Service
 					stopSelf();
 					break;
 				case DOWN_ERROR:
-					notification.setLatestEventInfo(UpdateService.this, "超级抢红包助手", "下载失败", pendingIntent);
+					notification.setLatestEventInfo(UpdateService.this, getResources().getString(R.string.app_name), "下载失败", pendingIntent);
 					break;
 
 				default:

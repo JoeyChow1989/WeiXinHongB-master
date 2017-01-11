@@ -8,6 +8,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 
+import gediaoshangpin.com.R;
+
+
 public class OpenDialog implements OnClickListener
 {
 	private Context mcontext;

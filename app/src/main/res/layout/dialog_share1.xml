@@ -66,6 +66,7 @@
                     android:textSize="15dp"/>
 
                 <TextView
+                    android:id="@+id/id_dialog_1_title"
                     android:layout_width="300dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -131,11 +132,12 @@
 
         <LinearLayout
             android:layout_width="300dp"
-            android:layout_height="100dp"
+            android:layout_height="101dp"
             android:background="#ededed"
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/id_linear_zhifubao"
                 android:layout_width="300dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -163,11 +165,10 @@
                     android:id="@+id/id_checkbox_zhifubao"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="12dp"
+                    android:layout_margin="10dp"
                     android:layout_weight="2"
+                    android:clickable="false"
                     android:button="@drawable/pay_selector"/>
-
-
             </LinearLayout>
 
             <View
@@ -176,6 +177,7 @@
                 android:background="#adadad"/>
 
             <LinearLayout
+                android:id="@+id/id_linear_weixin"
                 android:layout_width="300dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -203,12 +205,13 @@
                     android:id="@+id/id_checkbox_weixin"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="12dp"
+                    android:layout_margin="10dp"
                     android:layout_weight="2"
+                    android:clickable="false"
                     android:button="@drawable/pay_selector"
                     android:padding="5dp"/>
-
             </LinearLayout>
+
         </LinearLayout>
 
         <View
@@ -223,9 +226,7 @@
             android:layout_gravity="center"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/pay_btn"/>
-
     </LinearLayout>
-
 </LinearLayout>

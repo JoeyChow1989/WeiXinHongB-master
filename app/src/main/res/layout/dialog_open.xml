@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="15dp"
-            android:text="请开启超级抢红包助手的辅助服务"
+            android:text="@string/dialog_open1"
             android:textColor="#000000"
             android:textSize="14sp" >
         </TextView>
@@ -35,7 +35,7 @@
         <TextView 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="开启“辅助功能”可支持超级抢红包自动抢和自动回复功能，为了更快的抢红包，请务必开启辅助服务。"
+            android:text="@string/dialog_open2"
             android:textSize="14sp"
             android:layout_marginTop="15dp"
             android:layout_marginLeft="18dip"

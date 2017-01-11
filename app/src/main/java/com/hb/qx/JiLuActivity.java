@@ -16,6 +16,8 @@ import com.data.bean.User;
 import java.util.ArrayList;
 import java.util.List;
 
+import gediaoshangpin.com.R;
+
 public class JiLuActivity extends AppCompatActivity
 {
 

@@ -4,10 +4,8 @@ import android.accessibilityservice.AccessibilityServiceInfo;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -15,16 +13,18 @@ import android.view.WindowManager;
 import android.view.accessibility.AccessibilityManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.CompoundButton;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+
+
 import java.util.List;
+
+import gediaoshangpin.com.R;
 
 public class SeniorActivity extends Activity
 {
@@ -76,9 +76,9 @@ public class SeniorActivity extends Activity
             @Override
             public void onClick(View view)
             {
-                if (sp.getInt("vip", 0) == 0)
+                if (sp.getInt("vip_1", 0) == 0)
                 {
-                    shareSvip("22");
+                    shareSvip("永久开启SVIP全部功能", "68.8", "1");
                 } else
                 {
                     if (mSVIPall.isChecked() == true)
@@ -122,17 +122,15 @@ public class SeniorActivity extends Activity
             @Override
             public void onClick(View view)
             {
-                if (sp.getInt("vip", 0) == 0)
+                if (sp.getInt("vip_2", 0) == 0)
                 {
-                    shareSvip("22");
+                    shareSvip("扫雷埋雷专区", "56.8", "2");
                 } else
                 {
                     if (mSaoLei.isChecked() == true)
                     {
-
                         mSaoLei.setChecked(false);
                         editor.putInt("saolei", 0);
-
                     } else
                     {
                         mSaoLei.setChecked(true);
@@ -148,17 +146,15 @@ public class SeniorActivity extends Activity
             @Override
             public void onClick(View view)
             {
-                if (sp.getInt("vip", 0) == 0)
+                if (sp.getInt("vip_3", 0) == 0)
                 {
-                    shareSvip("22");
+                    shareSvip("牛牛抢红包", "46.8", "3");
                 } else
                 {
                     if (mNiuNiu.isChecked() == true)
                     {
-
                         mNiuNiu.setChecked(false);
                         editor.putInt("niuniu", 0);
-
                     } else
                     {
                         mNiuNiu.setChecked(true);
@@ -174,9 +170,9 @@ public class SeniorActivity extends Activity
             @Override
             public void onClick(View view)
             {
-                if (sp.getInt("vip", 0) == 0)
+                if (sp.getInt("vip_4", 0) == 0)
                 {
-                    shareSvip("22");
+                    shareSvip("提高尾号控制概率", "45.9", "4");
                 } else
                 {
                     if (mWeiHao.isChecked() == true)
@@ -200,17 +196,15 @@ public class SeniorActivity extends Activity
             @Override
             public void onClick(View view)
             {
-                if (sp.getInt("vip", 0) == 0)
+                if (sp.getInt("vip_5", 0) == 0)
                 {
-                    shareSvip("22");
+                    shareSvip("提高手气最佳概率", "43.8", "5");
                 } else
                 {
                     if (mShouqi.isChecked() == true)
                     {
-
                         mShouqi.setChecked(false);
                         editor.putInt("shouqi", 0);
-
                     } else
                     {
                         mShouqi.setChecked(true);
@@ -226,9 +220,9 @@ public class SeniorActivity extends Activity
             @Override
             public void onClick(View view)
             {
-                if (sp.getInt("vip", 0) == 0)
+                if (sp.getInt("vip_6", 0) == 0)
                 {
-                    shareSvip("22");
+                    shareSvip("提高抢大包概率", "39.8", "6");
                 } else
                 {
                     if (mDabao.isChecked() == true)
@@ -253,9 +247,9 @@ public class SeniorActivity extends Activity
             @Override
             public void onClick(View view)
             {
-                if (sp.getInt("vip", 0) == 0)
+                if (sp.getInt("vip_7", 0) == 0)
                 {
-                    shareSvip("22");
+                    shareSvip("最高概率躲避最小包", "38.8", "7");
                 } else
                 {
                     if (mDuoBi.isChecked() == true)
@@ -280,9 +274,9 @@ public class SeniorActivity extends Activity
             @Override
             public void onClick(View view)
             {
-                if (sp.getInt("vip", 0) == 0)
+                if (sp.getInt("vip_8", 0) == 0)
                 {
-                    shareSvip("22");
+                    shareSvip("抢红包加速", "33.8", "8");
                 } else
                 {
                     if (mJiaSu.isChecked() == true)
@@ -307,9 +301,9 @@ public class SeniorActivity extends Activity
             @Override
             public void onClick(View view)
             {
-                if (sp.getInt("vip", 0) == 0)
+                if (sp.getInt("vip_9", 0) == 0)
                 {
-                    shareSvip("22");
+                    shareSvip("智能干扰竞争者", "28.8", "9");
                 } else
                 {
                     if (mGanrao.isChecked() == true)
@@ -332,9 +326,9 @@ public class SeniorActivity extends Activity
             @Override
             public void onClick(View view)
             {
-                if (sp.getInt("vip", 0) == 0)
+                if (sp.getInt("vip_10", 0) == 0)
                 {
-                    shareSvip("26");
+                    shareSvip("息屏抢红包", "19.9", "10");
                 } else
                 {
                     if (mPingXi.isChecked() == true)
@@ -358,9 +352,9 @@ public class SeniorActivity extends Activity
             @Override
             public void onClick(View view)
             {
-                if (sp.getInt("vip", 0) == 0)
+                if (sp.getInt("vip_11", 0) == 0)
                 {
-                    shareSvip("11");
+                    shareSvip("关闭广告", "18.8", "11");
                 } else
                 {
                     if (mCloseAD.isChecked() == true)
@@ -383,9 +377,9 @@ public class SeniorActivity extends Activity
             @Override
             public void onClick(View view)
             {
-                if (sp.getInt("vip", 0) == 0)
+                if (sp.getInt("vip_12", 0) == 0)
                 {
-                    shareSvip("223");
+                    shareSvip("抢到红包自动答谢", "16.8", "12");
                 } else
                 {
                     if (mAutoThanks.isChecked() == true)
@@ -410,9 +404,9 @@ public class SeniorActivity extends Activity
             @Override
             public void onClick(View view)
             {
-                if (sp.getInt("vip", 0) == 0)
+                if (sp.getInt("vip_13", 0) == 0)
                 {
-                    shareSvip("69");
+                    shareSvip("神秘功能", "168.8", "13");
                 } else
                 {
                     if (mShenmi.isChecked() == true)
@@ -435,9 +429,16 @@ public class SeniorActivity extends Activity
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(
-                        Settings.ACTION_ACCESSIBILITY_SETTINGS);
-                startActivity(intent);
+                if (mStartService.isChecked())
+                {
+                    mStartService.setChecked(false);
+                    editor.putInt("startservice", 0);
+                } else
+                {
+                    mStartService.setChecked(true);
+                    editor.putInt("startservice", 1);
+                }
+                editor.commit();
             }
         });
 
@@ -540,9 +541,157 @@ public class SeniorActivity extends Activity
     @Override
     protected void onStart()
     {
-        // TODO Auto-generated method stub
         super.onStart();
         updateServiceStatus();
+        System.out.println("----------onStart()-------------");
+    }
+
+    @Override
+    protected void onPause()
+    {
+        super.onPause();
+        // 如果本Activity是继承基类BaseActivity的，可注释掉此行。
+        com.baidu.mobstat.StatService.onPause(this);
+    }
+
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        // 如果本Activity是继承基类BaseActivity的，可注释掉此行。
+        com.baidu.mobstat.StatService.onResume(this);
+
+        leizhi.setSelection(sp.getInt("leizhi", 0), true);
+        niu.setSelection(sp.getInt("niu", 0), true);
+        weishu.setSelection(sp.getInt("weishu", 0), true);
+
+        if (sp.getInt("vip_1", 0) == 1)
+        {
+            mSVIPall.setChecked(true);
+            editor.putInt("svipall", 1);
+            editor.putInt("vip_1", 1);
+            mSaoLei.setChecked(true);
+            editor.putInt("saolei", 1);
+            editor.putInt("vip_2", 1);
+            mNiuNiu.setChecked(true);
+            editor.putInt("niuniu", 1);
+            editor.putInt("vip_3", 1);
+            mWeiHao.setChecked(true);
+            editor.putInt("weihao", 1);
+            editor.putInt("vip_4", 1);
+            mShouqi.setChecked(true);
+            editor.putInt("shouqi", 1);
+            editor.putInt("vip_5", 1);
+            mDabao.setChecked(true);
+            editor.putInt("dabao", 1);
+            editor.putInt("vip_6", 1);
+            mDuoBi.setChecked(true);
+            editor.putInt("duobi", 1);
+            editor.putInt("vip_7", 1);
+            mJiaSu.setChecked(true);
+            editor.putInt("jiasu", 1);
+            editor.putInt("vip_8", 1);
+            mGanrao.setChecked(true);
+            editor.putInt("ganrao", 1);
+            editor.putInt("vip_9", 1);
+            mPingXi.setChecked(true);
+            editor.putInt("xiping", 1);
+            editor.putInt("vip_10", 1);
+            mCloseAD.setChecked(true);
+            editor.putInt("closead", 1);
+            editor.putInt("vip_11", 1);
+            mAutoThanks.setChecked(true);
+            editor.putInt("autothanks", 1);
+            editor.putInt("vip_12", 1);
+            mShenmi.setChecked(true);
+            editor.putInt("shenmi", 1);
+            editor.putInt("vip_13", 1);
+        }
+
+        if (sp.getInt("vip_2", 0) == 1)
+        {
+            mSaoLei.setChecked(true);
+            editor.putInt("saolei", 1);
+            editor.commit();
+        }
+
+        if (sp.getInt("vip_3", 0) == 1)
+        {
+            mNiuNiu.setChecked(true);
+            editor.putInt("niuniu", 1);
+            editor.commit();
+        }
+
+        if (sp.getInt("vip_4", 0) == 1)
+        {
+            mWeiHao.setChecked(true);
+            editor.putInt("weihao", 1);
+            editor.commit();
+        }
+
+        if (sp.getInt("vip_5", 0) == 1)
+        {
+            mShouqi.setChecked(true);
+            editor.putInt("shouqi", 1);
+            editor.commit();
+        }
+
+        if (sp.getInt("vip_6", 0) == 1)
+        {
+            mDabao.setChecked(true);
+            editor.putInt("dabao", 1);
+            editor.commit();
+        }
+
+        if (sp.getInt("vip_7", 0) == 1)
+        {
+            mDuoBi.setChecked(true);
+            editor.putInt("duobi", 1);
+            editor.commit();
+        }
+
+        if (sp.getInt("vip_8", 0) == 1)
+        {
+            mJiaSu.setChecked(true);
+            editor.putInt("jiasu", 1);
+            editor.commit();
+        }
+
+        if (sp.getInt("vip_9", 0) == 1)
+        {
+            mGanrao.setChecked(true);
+            editor.putInt("ganrao", 1);
+            editor.commit();
+        }
+
+        if (sp.getInt("vip_10", 0) == 1)
+        {
+            mPingXi.setChecked(true);
+            editor.putInt("xiping", 1);
+            editor.commit();
+        }
+
+
+        if (sp.getInt("vip_11", 0) == 1)
+        {
+            mCloseAD.setChecked(true);
+            editor.putInt("closead", 1);
+            editor.commit();
+        }
+
+        if (sp.getInt("vip_12", 0) == 1)
+        {
+            mAutoThanks.setChecked(true);
+            editor.putInt("autothanks", 1);
+            editor.commit();
+        }
+
+        if (sp.getInt("vip_13", 0) == 1)
+        {
+            mShenmi.setChecked(true);
+            editor.putInt("shenmi", 1);
+            editor.commit();
+        }
     }
 
     private void init()
@@ -571,7 +720,6 @@ public class SeniorActivity extends Activity
         MyOwnBao = (LinearLayout) findViewById(R.id.id_linear_senior_myown);
         mFrameLayout = (FrameLayout) findViewById(R.id.id_senior_huodongxiangqing);
 
-
         mStartService = (ToggleButton) findViewById(R.id.id_toggle_senior_startservice);
         mBack = (ImageView) findViewById(R.id.img_senior_back);
         mSVIPall = (ToggleButton) findViewById(R.id.id_toggle_senior_svipall);
@@ -596,9 +744,8 @@ public class SeniorActivity extends Activity
         niu = (Spinner) findViewById(R.id.id_main_spinner2);
         weishu = (Spinner) findViewById(R.id.id_main_spinner3);
 
-        leizhi.setSelection(sp.getInt("leizhi", 0), true);
-        niu.setSelection(sp.getInt("niu", 0), true);
-        weishu.setSelection(sp.getInt("weishu", 0), true);
+        editor.putInt("pageback", 1);
+        editor.commit();
 
         if (sp.getInt("svipall", 0) == 1)
         {
@@ -704,6 +851,14 @@ public class SeniorActivity extends Activity
             mShenmi.setChecked(false);
         }
 
+        if (sp.getInt("startservice", 0) == 1)
+        {
+            mStartService.setChecked(true);
+        } else if (sp.getInt("startservice", 1) == 0)
+        {
+            mStartService.setChecked(false);
+        }
+
         if (sp.getInt("pageback", 0) == 1)
         {
             mAutoBackChatPage.setChecked(true);
@@ -788,9 +943,9 @@ public class SeniorActivity extends Activity
         });
     }
 
-    private void shareSvip(String money)
+    private void shareSvip(String title, String money, String type)
     {
-        YqhyDialog1 yyDialog = new YqhyDialog1(SeniorActivity.this, money);
+        YqhyDialog1 yyDialog = new YqhyDialog1(SeniorActivity.this, title, money, type);
         try
         {
             yyDialog.showAtLocation(SeniorActivity.this.getWindow()
@@ -820,7 +975,7 @@ public class SeniorActivity extends Activity
             {
                 System.out.println("-----serviceEnabled---------:" + info.getId());
 
-                if (info.getId().equals(getPackageName() + "/.QQHongbaoService"))
+                if (info.getId().equals(getPackageName() + "/com.hb.qx.QQHongbaoService"))
                 {
                     serviceEnabled = true;
                 }
@@ -832,15 +987,23 @@ public class SeniorActivity extends Activity
                         WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
                 mStartService.setChecked(true);
-
+                editor.putInt("startservice", 1);
             } else
             {
                 getWindow().clearFlags(
                         WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
                 mStartService.setChecked(false);
+                editor.putInt("startservice", 0);
             }
         } catch (Exception e)
         {
         }
+    }
+
+    @Override
+    protected void onRestart()
+    {
+        super.onRestart();
+        System.out.println("----------onRestart()-------------");
     }
 }

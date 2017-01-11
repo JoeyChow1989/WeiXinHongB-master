@@ -1,7 +1,12 @@
 <resources>
-    <string name="app_name">超级抢红包助手</string>
+
+    <string name="app_name">牛牛抢红包</string>
+    <string name="service_start">牛牛抢红包正在运行中</string>
     <string name="service_status">当前辅助服务状态:</string>
-    <string name="service_name">超级抢红包助手</string>
+    <string name="service_name">牛牛抢红包</string>
+    <string name="mian_ui">为了牛牛抢红包正常运行，\n请点击这里到调置-辅助服务-开启抢红包服务</string>
+    <string name="dialog_open1">请开启牛牛抢红包的辅助服务</string>
+    <string name="dialog_open2">开启“辅助功能”可支持牛牛抢红包自动抢和自动回复功能，为了更快的抢红包，请务必开启辅助服务。</string>
     <string name="wechat_details_en">Details</string>
     <string name="wechat_better_luck_en">Better luck next time!</string>
     <string name="wechat_details_ch">红包详情</string>
@@ -17,13 +22,13 @@
     <drawable name="back_no_select">#E23A39</drawable>
     <color name="dialog">#ECECEC</color>
     <color name="dialog_button">#ffffff</color>
-    <string name="hp">本软件仅供娱乐消遣使用,完全模拟人工操作,抢红包速度取决你手机的性能和网络,不涉及任何第三方软件接口,无病毒、不收集用户隐私信息,切勿使用本软件参与赌博活动,一切因使用"超级抢红包""造成的任何成果,超级抢红助手概不负责,亦不承担任何法律责任。</string>
+    <string name="hp">本软件仅供娱乐消遣使用,完全模拟人工操作,抢红包速度取决你手机的性能和网络,不涉及任何第三方软件接口,无病毒、不收集用户隐私信息,切勿使用本软件参与赌博活动,一切因使用"牛牛抢红包""造成的任何成果,抢红助手概不负责,亦不承担任何法律责任。</string>
     <string name="slide_to_unlock_string">> 滑动解锁</string>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
-    <string name="qd_str">我们打开抢红包，点击上面的"开启"按钮进入辅助功能->超级抢红包助手，点击开启。完成后回到界面有"进度条"在跑即设 置成功</string>
-    <string name="cq_str_a">微信/QQ默认被允许读取已安装应用列表权限，在结合技术手段即可知道手机是否安装了超级抢红包助手。</string>
-    <string name="cq_str_b">只要使用360手机卫士、LBE安全大师等软件，禁止微信/QQ饭"获取读取已安装应用列表"权限就能成功防止微信和QQ对超级抢红包助手的封杀</string>
+    <string name="qd_str">我们打开抢红包，点击上面的"开启"按钮进入辅助功能->牛牛抢红包，点击开启。完成后回到界面有"进度条"在跑即设 置成功</string>
+    <string name="cq_str_a">微信/QQ默认被允许读取已安装应用列表权限，在结合技术手段即可知道手机是否安装了牛牛抢红包。</string>
+    <string name="cq_str_b">只要使用360手机卫士、LBE安全大师等软件，禁止微信/QQ饭"获取读取已安装应用列表"权限就能成功防止微信和QQ对红包助手的封杀</string>
     <string name="cq_str_c">如下图，禁止"读取已安装应用列表"即可(以360手机卫士为例，360卫士-权限管理-QQ或微信)</string>
 
 </resources>

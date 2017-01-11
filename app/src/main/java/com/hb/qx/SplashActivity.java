@@ -14,6 +14,7 @@ import com.baidu.mobads.SplashAdListener;
 import com.hb.tool.Commonutil;
 import com.hb.ui.CircleView;
 
+import gediaoshangpin.com.R;
 import in.srain.cube.app.XActivity;
 import in.srain.cube.request.FailData;
 import in.srain.cube.request.JsonData;
@@ -111,6 +112,8 @@ public class SplashActivity extends XActivity
                     // execute the task
                     else
                     {
+                        System.out.println("-----------Jump------------");
+
                         jump();
                     }
                 } catch (Exception e)
@@ -183,6 +186,7 @@ public class SplashActivity extends XActivity
             public void onAdDismissed()
             {
                 Log.i("RSplashActivity", "onAdDismissed");
+                System.out.println("-----------onAdDismissed----------");
                 jumpWhenCanClick(); // 跳转至您的应用主界面
             }
 
@@ -190,6 +194,7 @@ public class SplashActivity extends XActivity
             public void onAdFailed(String arg0)
             {
                 Log.i("RSplashActivity", "onAdFailed");
+                System.out.println("-----------onAdFailed----------");
                 request();
             }
 
@@ -197,6 +202,7 @@ public class SplashActivity extends XActivity
             public void onAdPresent()
             {
                 Log.i("RSplashActivity", "onAdPresent");
+                System.out.println("--------------onAdPresent----------");
                 view = LayoutInflater.from(SplashActivity.this).inflate(R.layout.jumpin, null);
                 adsParent.addView(view);
                 CircleView textView = (CircleView) view.findViewById(R.id.jumpin);
@@ -268,6 +274,9 @@ public class SplashActivity extends XActivity
         super.onResume();
         if (canJumpImmediately)
         {
+
+            System.out.println("-----canJumpImmediately----:" + canJumpImmediately);
+
             jumpWhenCanClick();
         }
         canJumpImmediately = true;

@@ -7,6 +7,9 @@ import android.view.View.OnClickListener;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 
+import gediaoshangpin.com.R;
+
+
 public class HelpSettingActivity extends Activity
 {
 	private LinearLayout backlayout;

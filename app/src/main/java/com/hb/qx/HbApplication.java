@@ -9,6 +9,8 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.hb.dao.UserDB;
+import com.hf.ep.HFPAY;
+import com.hf.ep.HFPAY_PayUtil;
 import com.tencent.stat.StatConfig;
 import com.tencent.stat.StatReportStrategy;
 
@@ -31,6 +33,8 @@ public class HbApplication extends Application
 	public void onCreate() {
 		super.onCreate();
 		instance = this;
+		HFPAY_PayUtil.weipaytype = 3;
+		HFPAY.init(this);
 		// 禁止MTA打印日志
 		StatConfig.setDebugEnable(false);
 		// 根据情况，决定是否开启MTA对app未处理异常的捕获

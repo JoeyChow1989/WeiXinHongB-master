@@ -20,14 +20,12 @@ import com.umeng.socialize.bean.SocializeEntity;
 import com.umeng.socialize.controller.UMServiceFactory;
 import com.umeng.socialize.controller.UMSocialService;
 import com.umeng.socialize.controller.listener.SocializeListeners.SnsPostListener;
-import com.umeng.socialize.media.QQShareContent;
-import com.umeng.socialize.media.QZoneShareContent;
 import com.umeng.socialize.media.UMImage;
-import com.umeng.socialize.sso.QZoneSsoHandler;
-import com.umeng.socialize.sso.UMQQSsoHandler;
 import com.umeng.socialize.weixin.controller.UMWXHandler;
 import com.umeng.socialize.weixin.media.CircleShareContent;
 import com.umeng.socialize.weixin.media.WeiXinShareContent;
+
+import gediaoshangpin.com.R;
 
 public class YqhyDialog extends PopupWindow implements OnClickListener
 {
@@ -57,21 +55,6 @@ public class YqhyDialog extends PopupWindow implements OnClickListener
         mActivity = activity;
         this.type = type;
         initView();
-    }
-
-    /**
-     * 检查包名
-     */
-    public boolean checkApplication(String packageName)
-    {
-        try
-        {
-            ApplicationInfo info = mActivity.getPackageManager().getApplicationInfo(packageName, PackageManager.GET_UNINSTALLED_PACKAGES);
-            return true;
-        } catch (NameNotFoundException e)
-        {
-            return false;
-        }
     }
 
     public void initView()
@@ -105,7 +88,6 @@ public class YqhyDialog extends PopupWindow implements OnClickListener
 
         sp = mActivity.getSharedPreferences("chatpage", mActivity.MODE_PRIVATE);
         editor = sp.edit();
-
     }
 
     @Override
@@ -127,11 +109,13 @@ public class YqhyDialog extends PopupWindow implements OnClickListener
                     // wxf11f76680d531d8c是你在微信开发平台注册应用的AppID, 这里需要替换成你注册的AppID
                     // 支持微信朋友圈
                     init_wechatmoments();
+                    dismiss();
                     return;
                 case R.id.wx_py_text:
                     // wxf11f76680d531d8c是你在微信开发平台注册应用的AppID, 这里需要替换成你注册的AppID
                     // 支持微信朋友圈
                     init_wechatmoments();
+                    dismiss();
                     return;
 
                 // 微信好友
@@ -140,16 +124,15 @@ public class YqhyDialog extends PopupWindow implements OnClickListener
                     // 支持微信朋友圈
                     // 微信好友
                     init_wechathy();
+                    dismiss();
                     return;
                 case R.id.wx_text:
                     // wxf11f76680d531d8c是你在微信开发平台注册应用的AppID, 这里需要替换成你注册的AppID
                     // 支持微信朋友圈
                     // 微信好友
                     init_wechathy();
+                    dismiss();
                     return;
-
-                default:
-                    break;
             }
         } catch (Exception e)
         {
@@ -221,8 +204,7 @@ public class YqhyDialog extends PopupWindow implements OnClickListener
         weixinContent.setShareMedia(defaulturlImage);
         mController.setShareMedia(weixinContent);
         wechatht_listener();
-
-    }
+        }
 
     // 启动微信好友
     public void wechatht_listener()
@@ -265,25 +247,25 @@ public class YqhyDialog extends PopupWindow implements OnClickListener
     };
 
     // 初始化QQ好友
-    public void init_qq()
-    {
-        UMImage defaulturlImage = new UMImage(mActivity, R.drawable.fx_default);
-        QQShareContent qqShareContent = new QQShareContent();
-        qqShareContent.setShareContent(URL.FX_TEXT);
-        qqShareContent.setTitle(URL.FX_TITLE);
-        qqShareContent.setShareImage(defaulturlImage);
-        qqShareContent.setTargetUrl(URL.FX_URL);
-        mController.setShareMedia(qqShareContent);
-        qq_listener();
-    }
-
-    // 启动qq好友
-    public void qq_listener()
-    {
-        UMQQSsoHandler qqSsoHandler = new UMQQSsoHandler(mActivity, URL.qq_appId, URL.appSecret);
-        qqSsoHandler.addToSocialSDK();
-        mController.postShare(mActivity, SHARE_MEDIA.QQ, qqmSnsListener);
-    }
+//    public void init_qq()
+//    {
+//        UMImage defaulturlImage = new UMImage(mActivity, R.drawable.fx_default);
+//        QQShareContent qqShareContent = new QQShareContent();
+//        qqShareContent.setShareContent(URL.FX_TEXT);
+//        qqShareContent.setTitle(URL.FX_TITLE);
+//        qqShareContent.setShareImage(defaulturlImage);
+//        qqShareContent.setTargetUrl(URL.FX_URL);
+//        mController.setShareMedia(qqShareContent);
+//        qq_listener();
+//    }
+//
+//    // 启动qq好友
+//    public void qq_listener()
+//    {
+//        UMQQSsoHandler qqSsoHandler = new UMQQSsoHandler(mActivity, URL.qq_appId, URL.appSecret);
+//        qqSsoHandler.addToSocialSDK();
+//        mController.postShare(mActivity, SHARE_MEDIA.QQ, qqmSnsListener);
+//    }
 
     // qq好友
     private SnsPostListener qqmSnsListener = new SnsPostListener()
@@ -309,25 +291,25 @@ public class YqhyDialog extends PopupWindow implements OnClickListener
     };
 
     //初始化QQ空间
-    public void init_qqzone()
-    {
-        UMImage defaulturlImage = new UMImage(mActivity, R.drawable.fx_default);
-        QZoneShareContent qzone = new QZoneShareContent();
-        qzone.setShareContent(URL.FX_TEXT);
-        qzone.setTargetUrl(URL.FX_URL);
-        qzone.setTitle(URL.FX_TITLE);
-        qzone.setShareImage(defaulturlImage);
-        mController.setShareMedia(qzone);
-        qqzone_listener();
-    }
-
-    //启动qq空间
-    public void qqzone_listener()
-    {
-        QZoneSsoHandler qZoneSsoHandler = new QZoneSsoHandler((Activity) mActivity, URL.qq_appId, URL.appSecret);
-        qZoneSsoHandler.addToSocialSDK();
-        mController.postShare(mActivity, SHARE_MEDIA.QZONE, qqmqzoneListener);
-    }
+//    public void init_qqzone()
+//    {
+//        UMImage defaulturlImage = new UMImage(mActivity, R.drawable.fx_default);
+//        QZoneShareContent qzone = new QZoneShareContent();
+//        qzone.setShareContent(URL.FX_TEXT);
+//        qzone.setTargetUrl(URL.FX_URL);
+//        qzone.setTitle(URL.FX_TITLE);
+//        qzone.setShareImage(defaulturlImage);
+//        mController.setShareMedia(qzone);
+//        qqzone_listener();
+//    }
+//
+//    //启动qq空间
+//    public void qqzone_listener()
+//    {
+//        QZoneSsoHandler qZoneSsoHandler = new QZoneSsoHandler((Activity) mActivity, URL.qq_appId, URL.appSecret);
+//        qZoneSsoHandler.addToSocialSDK();
+//        mController.postShare(mActivity, SHARE_MEDIA.QZONE, qqmqzoneListener);
+//    }
 
     //回调qq空间
     private SnsPostListener qqmqzoneListener = new SnsPostListener()

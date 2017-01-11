@@ -9,6 +9,8 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import gediaoshangpin.com.R;
+
 
 public class AlertDialogContainer
 {
