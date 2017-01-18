@@ -7,8 +7,7 @@ import android.view.View.OnClickListener;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 
-import gediaoshangpin.com.R;
-
+import cn.swiftpass.spaycx.R;
 
 public class HelpSettingActivity extends Activity
 {

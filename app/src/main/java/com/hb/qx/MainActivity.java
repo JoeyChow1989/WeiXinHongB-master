@@ -28,7 +28,8 @@ import com.hb.ui.RadarView;
 import java.util.ArrayList;
 import java.util.List;
 
-import gediaoshangpin.com.R;
+import cn.swiftpass.spaycx.R;
+
 
 @SuppressLint("NewApi")
 public class MainActivity extends Activity

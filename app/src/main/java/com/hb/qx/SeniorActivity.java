@@ -21,10 +21,9 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 
-
 import java.util.List;
 
-import gediaoshangpin.com.R;
+import cn.swiftpass.spaycx.R;
 
 public class SeniorActivity extends Activity
 {
@@ -90,29 +89,39 @@ public class SeniorActivity extends Activity
                         editor.putInt("svipall", 1);
                         mSaoLei.setChecked(true);
                         editor.putInt("saolei", 1);
+                        editor.putInt("vip_2", 1);
                         mNiuNiu.setChecked(true);
                         editor.putInt("niuniu", 1);
+                        editor.putInt("vip_3", 1);
                         mWeiHao.setChecked(true);
                         editor.putInt("weihao", 1);
+                        editor.putInt("vip_4", 1);
                         mShouqi.setChecked(true);
                         editor.putInt("shouqi", 1);
+                        editor.putInt("vip_5", 1);
                         mDabao.setChecked(true);
                         editor.putInt("dabao", 1);
+                        editor.putInt("vip_6", 1);
                         mDuoBi.setChecked(true);
                         editor.putInt("duobi", 1);
+                        editor.putInt("vip_7", 1);
                         mJiaSu.setChecked(true);
                         editor.putInt("jiasu", 1);
+                        editor.putInt("vip_8", 1);
                         mGanrao.setChecked(true);
                         editor.putInt("ganrao", 1);
+                        editor.putInt("vip_9", 1);
                         mPingXi.setChecked(true);
                         editor.putInt("xiping", 1);
+                        editor.putInt("vip_10", 1);
                         mCloseAD.setChecked(true);
                         editor.putInt("closead", 1);
+                        editor.putInt("vip_11", 1);
                         mAutoThanks.setChecked(true);
                         editor.putInt("autothanks", 1);
-                        mShenmi.setChecked(true);
-                        editor.putInt("shenmi", 1);
+                        editor.putInt("vip_12", 1);
                     }
+                    editor.commit();
                 }
             }
         });
@@ -177,10 +186,8 @@ public class SeniorActivity extends Activity
                 {
                     if (mWeiHao.isChecked() == true)
                     {
-
                         mWeiHao.setChecked(false);
                         editor.putInt("weihao", 0);
-
                     } else
                     {
                         mWeiHao.setChecked(true);
@@ -227,10 +234,8 @@ public class SeniorActivity extends Activity
                 {
                     if (mDabao.isChecked() == true)
                     {
-
                         mDabao.setChecked(false);
                         editor.putInt("dabao", 0);
-
                     } else
                     {
                         mDabao.setChecked(true);
@@ -254,10 +259,8 @@ public class SeniorActivity extends Activity
                 {
                     if (mDuoBi.isChecked() == true)
                     {
-
                         mDuoBi.setChecked(false);
                         editor.putInt("duobi", 0);
-
                     } else
                     {
                         mDuoBi.setChecked(true);
@@ -281,10 +284,8 @@ public class SeniorActivity extends Activity
                 {
                     if (mJiaSu.isChecked() == true)
                     {
-
                         mJiaSu.setChecked(false);
                         editor.putInt("jiasu", 0);
-
                     } else
                     {
                         mJiaSu.setChecked(true);
@@ -310,7 +311,6 @@ public class SeniorActivity extends Activity
                     {
                         mGanrao.setChecked(false);
                         editor.putInt("ganrao", 0);
-
                     } else
                     {
                         mGanrao.setChecked(true);
@@ -335,7 +335,6 @@ public class SeniorActivity extends Activity
                     {
                         mPingXi.setChecked(false);
                         editor.putInt("xiping", 0);
-
                     } else
                     {
                         mPingXi.setChecked(true);
@@ -413,7 +412,6 @@ public class SeniorActivity extends Activity
                     {
                         mShenmi.setChecked(false);
                         editor.putInt("shenmi", 0);
-
                     } else
                     {
                         mShenmi.setChecked(true);

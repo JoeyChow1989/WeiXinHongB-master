@@ -13,8 +13,7 @@ import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.widget.RelativeLayout;
 
-import gediaoshangpin.com.R;
-
+import cn.swiftpass.spaycx.R;
 
 public class SlideBar extends RelativeLayout {
 

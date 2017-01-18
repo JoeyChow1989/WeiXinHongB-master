@@ -9,7 +9,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import gediaoshangpin.com.R;
+import cn.swiftpass.spaycx.R;
 
 
 public class AlertDialogContainer

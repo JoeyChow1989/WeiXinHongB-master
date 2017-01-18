@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 
 
-import gediaoshangpin.com.R;
+import cn.swiftpass.spaycx.R;
 import in.srain.cube.views.list.ViewHolderBase;
 
 

@@ -14,7 +14,7 @@ import com.baidu.mobads.SplashAdListener;
 import com.hb.tool.Commonutil;
 import com.hb.ui.CircleView;
 
-import gediaoshangpin.com.R;
+import cn.swiftpass.spaycx.R;
 import in.srain.cube.app.XActivity;
 import in.srain.cube.request.FailData;
 import in.srain.cube.request.JsonData;

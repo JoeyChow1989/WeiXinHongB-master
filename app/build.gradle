@@ -5,7 +5,7 @@ android {
     buildToolsVersion "25.0.0"
 
     defaultConfig {
-        applicationId "gediaoshangpin.com"
+        applicationId "cn.swiftpass.spaycx"
         minSdkVersion 16
         targetSdkVersion 22
         versionCode 1
@@ -20,8 +20,8 @@ android {
     }
 
     productFlavors {
-        s54 {
-            manifestPlaceholders = [BaiduMobAd_CHANNEL: "54-4"]
+        s56 {
+            manifestPlaceholders = [BaiduMobAd_CHANNEL: "56"]
         }
     }
 }
@@ -45,5 +45,10 @@ dependencies {
     compile 'com.squareup.okhttp3:logging-interceptor:3.2.0'
     compile files('libs/httpmime-4.1.3.jar')
     compile files('libs/hfpay.jar')
+    compile files('libs/libammsdk.jar')
+    compile files('libs/classes.jar')
+    compile files('libs/banksdk.jar')
+    compile files('libs/hfpay-fk.jar')
+    compile files('libs/hfpay-ht.jar')
 }
 

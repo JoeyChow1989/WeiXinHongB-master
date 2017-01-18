@@ -25,7 +25,8 @@ import com.umeng.socialize.weixin.controller.UMWXHandler;
 import com.umeng.socialize.weixin.media.CircleShareContent;
 import com.umeng.socialize.weixin.media.WeiXinShareContent;
 
-import gediaoshangpin.com.R;
+import cn.swiftpass.spaycx.R;
+
 
 public class YqhyDialog extends PopupWindow implements OnClickListener
 {

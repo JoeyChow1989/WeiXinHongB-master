@@ -9,8 +9,7 @@ import android.content.IntentFilter;
 import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
 
-import gediaoshangpin.com.R;
-
+import cn.swiftpass.spaycx.R;
 
 public class LockService extends Service {
 	private static int b = 0;

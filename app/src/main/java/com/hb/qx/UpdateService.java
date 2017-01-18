@@ -24,7 +24,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import gediaoshangpin.com.R;
+import cn.swiftpass.spaycx.R;
 
 
 public class UpdateService extends Service

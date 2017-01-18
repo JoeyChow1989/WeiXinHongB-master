@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 
-import gediaoshangpin.com.R;
+import cn.swiftpass.spaycx.R;
 
 
 public class YqhyDialog2 extends PopupWindow

@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.webkit.WebView;
 import android.widget.ProgressBar;
 
-import gediaoshangpin.com.R;
+import cn.swiftpass.spaycx.R;
 
 
 public class ProgressWebView extends WebView {

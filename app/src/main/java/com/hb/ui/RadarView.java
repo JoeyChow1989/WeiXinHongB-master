@@ -16,7 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import gediaoshangpin.com.R;
+import cn.swiftpass.spaycx.R;
+
 
 /**
  * 2015/12/06 22:49

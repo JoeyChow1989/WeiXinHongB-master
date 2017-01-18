@@ -17,7 +17,7 @@ import android.widget.RelativeLayout.LayoutParams;
 
 import com.hb.ui.ProgressWebView;
 
-import gediaoshangpin.com.R;
+import cn.swiftpass.spaycx.R;
 
 public class WebViewActivity extends Activity {
 

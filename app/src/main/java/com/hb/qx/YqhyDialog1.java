@@ -19,8 +19,10 @@ import com.hb.net.RxService;
 import com.hb.tool.Sha_php;
 import com.hf.ep.HFPAY;
 import com.hf.ep.HFPAY_PayListener;
+import com.mylibpay.Pay;
+import com.mylibpay.RequestPay;
 
-import gediaoshangpin.com.R;
+import cn.swiftpass.spaycx.R;
 import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -33,12 +35,11 @@ public class YqhyDialog1 extends PopupWindow
     private RadioButton zhifubao, weixin;
     private ImageView cancel;
     private TextView tv_prise, tv_title;
-    private String type;
+    public String type;
 
     SharedPreferences sp;
     SharedPreferences.Editor editor;
 
-    private boolean isZFB, isWX;
     String prise;
     String oid;
     String title;
@@ -73,6 +74,10 @@ public class YqhyDialog1 extends PopupWindow
 
         sp = mActivity.getSharedPreferences("chatpage", mActivity.MODE_PRIVATE);
         editor = sp.edit();
+
+        editor.putString("typexxx", type);
+        editor.putString("oid", oid);
+        editor.commit();
 
         tv_title.setText(title);
         zhifubao.setChecked(true);
@@ -123,7 +128,7 @@ public class YqhyDialog1 extends PopupWindow
                 {
                     // Toast.makeText(mActivity, "-------微信-----", Toast.LENGTH_SHORT).show();
                     PayService(oid, URL.qudao_num, prise.replace(".", "") + "0", "0", token);
-                    // PayService(oid, URL.qudao_num, "1", "0", token);
+                    //PayService(oid, URL.qudao_num, "1", "0", token);
                 } else
                 {
                     //Toast.makeText(mActivity, "-------支付宝-----", Toast.LENGTH_SHORT).show();
@@ -141,6 +146,7 @@ public class YqhyDialog1 extends PopupWindow
                 dismiss();
             }
         });
+
         setContentView(rootView);
         setWidth(LayoutParams.MATCH_PARENT);
         setHeight(LayoutParams.MATCH_PARENT);
@@ -194,11 +200,47 @@ public class YqhyDialog1 extends PopupWindow
 
     private void PayWeiXin()
     {
-        doPay(1);
+
+        final RequestPay requestPay = new RequestPay();
+
+        requestPay.setMethod("pay");
+        requestPay.setOrder_no(oid);
+        requestPay.setGoods_name("vip");
+        requestPay.setOrder_amt("0.01");
+        requestPay.setNotify_url("http://www.uku99.net/hb/xfnotify");
+        requestPay.setCustom("1");
+        requestPay.setMchid("1009109");
+        requestPay.setSign("7153e25488ecb6b92f8ba19c750811d6");
+
+
+        new Thread(new Runnable()
+        {
+            @Override
+            public void run()
+            {
+
+                /**
+                 * 必须在子线程调用
+                 * @param act  当前调用的此方法的Activity对象
+                 * @param appId 微信appid
+                 * @param requestPay 请求实体
+                 * @return 0获取token成功,-1服务器返回错误,-2服务器异常,-3未知错误,-4不能在主线程调用
+                 *
+                 */
+                int code = Pay.unifiedAppPay(mActivity, URL.APPID, requestPay);
+                System.out.println("----------------" + code);
+
+            }
+        }).start();
     }
 
     private void doPay(int t)
     {
+        System.out.println("type----------:" + t);
+        System.out.println("prse----------:" + Integer.parseInt(prise.replace(".", "") + "0"));
+        System.out.println("oid----------:" + oid);
+
+
         HFPAY.pay(mActivity, t, Integer.parseInt(prise.replace(".", "") + "0"), URL.XF_APPID, oid,
                 new HFPAY_PayListener()
                 {
@@ -262,7 +304,7 @@ public class YqhyDialog1 extends PopupWindow
     @Override
     public void dismiss()
     {
-        oid = "";
         super.dismiss();
+        oid = "";
     }
 }

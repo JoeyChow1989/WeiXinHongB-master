@@ -34,7 +34,7 @@ import org.json.JSONException;
 
 import java.io.UnsupportedEncodingException;
 
-import gediaoshangpin.com.R;
+import cn.swiftpass.spaycx.R;
 import in.srain.cube.request.JsonData;
 import in.srain.cube.request.RequestJsonHandler;
 import in.srain.cube.views.GridViewWithHeaderAndFooter;

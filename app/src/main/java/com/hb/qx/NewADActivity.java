@@ -7,7 +7,8 @@ import android.util.Log;
 import com.baidu.mobads.InterstitialAd;
 import com.baidu.mobads.InterstitialAdListener;
 
-import gediaoshangpin.com.R;
+import cn.swiftpass.spaycx.R;
+
 
 public class NewADActivity extends Activity
 {

@@ -8,8 +8,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 
-import gediaoshangpin.com.R;
-
+import cn.swiftpass.spaycx.R;
 
 public class OpenDialog implements OnClickListener
 {

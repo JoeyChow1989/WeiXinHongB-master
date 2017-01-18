@@ -17,7 +17,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 
-import gediaoshangpin.com.R;
+import cn.swiftpass.spaycx.R;
 
 
 @SuppressLint("NewApi")

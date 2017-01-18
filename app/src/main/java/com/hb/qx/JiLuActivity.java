@@ -16,7 +16,8 @@ import com.data.bean.User;
 import java.util.ArrayList;
 import java.util.List;
 
-import gediaoshangpin.com.R;
+import cn.swiftpass.spaycx.R;
+
 
 public class JiLuActivity extends AppCompatActivity
 {
